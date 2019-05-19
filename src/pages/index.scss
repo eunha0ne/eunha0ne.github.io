@@ -1,0 +1,10 @@
+.index-view {
+  display: flex;
+  flex-direction: column;
+  max-width: 740px;
+  margin: 0 auto; padding: 0 1rem; padding-top: 15rem;
+
+  @media screen and (max-width: 640px) {
+    margin-top: 15rem;
+  }
+}

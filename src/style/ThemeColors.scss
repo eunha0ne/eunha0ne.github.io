@@ -1,0 +1,67 @@
+body.night {
+  // [1] 배경
+  --bg-none: #272727;
+  --bg-main: #2b3137;
+  --bg-sub: #24292e;
+  --bg-header: rgba(25,25,25,.9);
+
+  // [2] 배경 <강조>
+  --bg-hl: orange;
+  --bg-hl-light: hsla(33, 99%, 59%, .8);
+  --bg-hl-light1: hsla(33, 99%, 59%, .02); // rgba(0,0,0,.1); // hsla(33, 99%, 59%, .1);
+  --bg-hl-light2: hsla(33, 99%, 59%, .1); // rgba(0,0,0,.3); // hsla(33, 99%, 59%, .3);
+
+  // [3] 폰트 색상
+  --font-main: hsla(0,0%,100%,9);
+  --font-sub: hsla(0,0%,100%,.7);
+  --font-hl: yellowgreen;
+  --font-hl-light: hsla(82, 55%, 54%, .9);
+
+  // [4] 기타
+  --code-bg: rgba(255,255,255,.1);
+  --border-main: #222;
+}
+
+body.day {
+  // [1] 배경
+  --bg-none: white;
+  --bg-main: rgb(250,250,250);
+  --bg-sub: #eee;
+  --bg-header: rgba(255,255,255,.9);
+
+  // [2] 배경 <강조>
+  --bg-hl: yellowgreen;
+  --bg-hl-light: hsla(82, 55%, 54%, .9);
+  --bg-hl-light1: hsla(82, 55%, 54%, .1);
+  --bg-hl-light2: hsla(82, 55%, 54%, .3);
+  --font-hl-light: hsla(33, 99%, 59%, .9);
+
+  // [3] 폰트 색상
+  --font-main: hsla(0,0%,0%,0.9);
+  --font-sub: hsla(0,0%,0%,0.7);
+  --font-hl: orange;
+
+  // [4] 기타
+  --code-bg: rgba(255,255,255,.1);
+  --border-main: #eee;
+}
+
+
+.night ::selection {  }
+.day ::selection { background: hsla(82, 55%, 54%, .9) }
+.day pre ::selection { background: var(--code-bg) }
+
+.night pre {
+  &::-webkit-scrollbar              { background: #2a2a2a; border-radius: 0 0 5px 5px }
+  &::-webkit-scrollbar-thumb        { background: hsla(0,0%,100%,.1); border-radius: 5px }
+}
+
+/*
+&::-webkit-scrollbar              { }
+&::-webkit-scrollbar-button       { }
+&::-webkit-scrollbar-track        { }
+&::-webkit-scrollbar-track-piece  { }
+&::-webkit-scrollbar-thumb        { }
+&::-webkit-scrollbar-corner       { }
+&::-webkit-resizer                { }
+*/
