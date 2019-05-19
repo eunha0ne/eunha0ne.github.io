@@ -1,6 +1,7 @@
 const path = require(`path`);
 
 module.exports = {
+  pathPrefix: "/eunha0ne.github.io",
   siteMetadata: {
     title: `title`,
     description: `descriptions`,

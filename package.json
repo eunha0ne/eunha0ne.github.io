@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "은하의 개발 블로그입니다.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Kim Gyu-sik <eunha0ne@gmail.com>",
   "dependencies": {
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.34",
@@ -39,7 +39,8 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "mocha"
+    "test": "mocha",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "babel-preset-gatsby": "^0.1.8",
     "chai": "*",
     "gatsby-plugin-root-import": "^2.0.5",
+    "gh-pages": "^2.0.1",
     "mocha": "^6.1.4"
   }
 }
