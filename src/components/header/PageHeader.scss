@@ -29,7 +29,7 @@
 
 // 메인 헤더: 도킹 상태에 따른 하위 엘리먼트 <스타일 재정의>
 .main-header--docked {
-  transform: translateY(0rem); transition: none;
+  transform: translateY(0rem);
   background: none;
 
   .menu {

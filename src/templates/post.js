@@ -85,17 +85,18 @@ const PostTags = (props) => {
 
 const PostNavi = (props) => {
   const { prev, next } = props;
+  
   return (
     <div className="post__navi navi">
     {prev &&
       <Link to={prev.node.fields.slug} className="navi__prev">
         <span>&larr;</span>
-        <p>{prev.node.headings.length > 0 && prev.node.headings[0].value}</p>
+        <p>{prev.node.headings.length > 0 && prev.node.frontmatter.title}</p>
       </Link>
     }
     {next &&
       <Link to={next.node.fields.slug} className="navi__next">
-        <p>{next.node.headings.length > 0 && next.node.headings[0].value}</p>
+        <p>{next.node.headings.length > 0 && next.node.frontmatter.title}</p>
         <span>&rarr;</span>
       </Link>
     }
