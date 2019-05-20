@@ -3,8 +3,8 @@ const path = require(`path`);
 module.exports = {
   pathPrefix: "/eunha0ne.github.io",
   siteMetadata: {
-    title: `title`,
-    description: `descriptions`,
+    title: `eunha's dev`,
+    description: `은하의 개발 블로그입니다.`,
     author: `@eunha0ne`,
   },
   plugins: [

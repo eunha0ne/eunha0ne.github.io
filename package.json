@@ -40,7 +40,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "mocha",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy:github": "npm run build && node ./scripts/deploy-github"
   },
   "repository": {
     "type": "git",
