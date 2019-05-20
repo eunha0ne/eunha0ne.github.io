@@ -48,14 +48,22 @@
   h3, h4, h5 {
     color: var(--font-main); margin-bottom: 2rem; margin-top: 8rem;
   }
+
   p {
     color: var(--font-sub);
     margin-top: 1em;
     text-shadow: 0 0 .1px rgba(0,0,0,.3); letter-spacing: -.5px;
   }
+
   li {
     color: var(--font-sub);
     margin-bottom: 1.3em;
+  }
+
+  ul > li {
+    ul > li {
+      margin-bottom: .5rem;
+    }
   }
 
   a {
