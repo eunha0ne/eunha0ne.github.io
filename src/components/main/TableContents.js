@@ -101,6 +101,15 @@ class TableContents extends Component {
   handleHighlight() {
     const { intervals, prevTop, currTop, revision, step } = this.info;
     const isTopdown = prevTop <= currTop ? true : false;
+    let currStep = step;
+
+    for (let i = currStep; i < intervals.length; i++) {
+      if (intervals[i] <= currTop) {
+        currStep = i;
+      }
+    }
+
+    /*
     const dir = isTopdown ? revision : (revision * -1);
     const sightTop = currTop + dir;
     const fExpression = i => isTopdown ? ++i : --i;
@@ -131,9 +140,10 @@ class TableContents extends Component {
         break;
       }
     }
+    */
 
-    if (this.state.step !== this.info.step) {
-      this.setState({ step: this.info.step });
+    if (this.state.step !== currStep) {
+      this.setState({ step: currStep });
     }
   }
 
