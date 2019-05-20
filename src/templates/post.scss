@@ -131,10 +131,15 @@
 
 .navi {
   a {
-    display: inline-block; width: 49%; height: 5rem; vertical-align: top; padding: 1rem;
+    display: inline-block; width: 49%; height: 5rem;
+    vertical-align: top; padding: 1rem;
     box-sizing: border-box; border: 1px solid var(--border-main); border-radius: .5rem;
     font-size: 0; color: var(--font-main); background: var(--bg-none);
     transition: background-color .6s ease, color .3s ease;
+
+    @media screen and (max-width: 640px) {
+      width: 100%; margin-bottom: 1rem;
+    }
 
     > * {
       position: relative; top: 50%; transform: translateY(-50%);
@@ -161,17 +166,23 @@
     }
   }
 
-  &__prev { float: left;}
-  &__next { float: right; }
-  &:after { content: ''; clear: both; }
+  &__prev {
+    float: left;
+  }
+
+  &__next {
+    float: right;
+  }
+
+  &:after {
+    content: ''; clear: both;
+  }
+
 }
 
 .post__footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 100px;
-  > * {
-    margin-top: 1.5rem;
-  }
+  margin-bottom: 100px; margin-top: 1rem;
 }

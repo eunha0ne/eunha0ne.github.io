@@ -85,9 +85,9 @@ const PostTags = (props) => {
 
 const PostNavi = (props) => {
   const { prev, next } = props;
-  
+  console.log({prev, next})
   return (
-    <div className="post__navi navi">
+    <div className="navi">
     {prev &&
       <Link to={prev.node.fields.slug} className="navi__prev">
         <span>&larr;</span>
