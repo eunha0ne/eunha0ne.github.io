@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 import Tags from 'src/components/Tags';
 import "./IndexContents.scss";
 

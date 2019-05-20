@@ -99,8 +99,8 @@ class TableContents extends Component {
   }
 
   handleHighlight() {
-    const { intervals, prevTop, currTop, revision, step } = this.info;
-    const isTopdown = prevTop <= currTop ? true : false;
+    const { intervals, currTop, step } = this.info;
+    // const isTopdown = prevTop <= currTop ? true : false;
     let currStep = step;
 
     for (let i = currStep; i < intervals.length; i++) {
@@ -164,9 +164,9 @@ class TableContents extends Component {
 
   // === 집에가서 수정할 부분 ===
   setTableContentsPos() {
-    const doc = document.body;
+    // const doc = document.body;
     const article = this.node.article;
-    const docAutoMarginVal = doc.offsetWidth - article.offsetWidth;
+    // const docAutoMarginVal = doc.offsetWidth - article.offsetWidth;
     // const tableContentsPos = article.offsetWidth + (docAutoMarginVal / 2);
     const tableContentsPos = article.offsetWidth;
 

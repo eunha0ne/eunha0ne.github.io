@@ -1,6 +1,6 @@
-import React, { Component }  from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { StaticQuery, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import PageHeader from "src/components/header/PageHeader";
 import "./layout.css";
 import "./layout.scss";

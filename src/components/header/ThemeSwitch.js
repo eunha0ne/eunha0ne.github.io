@@ -24,8 +24,6 @@ class ThemeSwitch extends Component {
   setTheme(result) {
     this.toggleThemeTo(result, document.getElementById('___gatsby'));
     this.toggleThemeTo(result, this.node.btnItemRef.current);
-    var result = (result === 'night') ? true : false;
-
   }
 
   toggleThemeTo(className, node) {

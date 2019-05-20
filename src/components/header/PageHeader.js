@@ -79,7 +79,7 @@ class PageHeader extends Component {
 export default PageHeader;
 
 const Header = (props) => {
-  const { hasReader, isRolldown, isDocking, ...rest } = props;
+  const { hasReader, isRolldown, isDocking } = props;
   const classState = isDocking
     ? 'main-header--docked'
     : (isRolldown ? 'main-header--fade-in' : 'main-header--fade-out');

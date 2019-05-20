@@ -32,7 +32,7 @@ export const query = graphql`
 export default ({ data, pageContext }) => {
   const { next, prev } = pageContext;
   const post = data.markdownRemark;
-  const { title, image, tags } = data.markdownRemark.frontmatter;
+  const { title, tags } = data.markdownRemark.frontmatter; // { image }
 
   // thumbnail={thumbnail && url + thumbnail}
   // url={url}
@@ -85,7 +85,6 @@ const PostTags = (props) => {
 
 const PostNavi = (props) => {
   const { prev, next } = props;
-  console.log({prev, next})
   return (
     <div className="navi">
     {prev &&

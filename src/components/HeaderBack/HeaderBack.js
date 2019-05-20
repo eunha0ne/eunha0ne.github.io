@@ -2,7 +2,7 @@ import React, { Component }  from "react"
 import PropTypes from "prop-types"
 import throttle from "src/components/common/throttle.js"
 import { connect } from 'react-redux';
-import { toggleTheme } from 'src/state/app';
+// import { toggleTheme } from 'src/state/app';
 import "./HeaderBack.scss";
 
 class HeaderBack extends Component {

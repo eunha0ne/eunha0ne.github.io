@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from 'src/components/layout';
 import IndexContents from 'src/components/IndexContents';
 import AllTags from 'src/components/AllTags';
@@ -9,7 +9,6 @@ import './tag-template.scss'
 // import { toggleTheme } from 'src/state/app';
 
 const Tags = (props) => {
-  console.log(props)
   const { data, pageContext }= props;
   return (
     <Layout>

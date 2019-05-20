@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, graphql } from "gatsby"
-import Layout from 'src/components/layout';
+import { Link } from "gatsby"
 import './Tags.scss'
 
 const Tags = ({ props }) => {

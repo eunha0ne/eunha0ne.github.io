@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types"
 import throttle from "../common/throttle.js"
 import "./TopButton.scss";
 
@@ -91,7 +90,3 @@ class TopButton extends Component {
 }
 
 export default TopButton;
-
-TopButton.propTypes = {
-  // debug: PropTypes.array,
-};
