@@ -130,6 +130,8 @@
 }
 
 .navi {
+  margin-bottom: 1rem;
+
   a {
     display: inline-block; width: 49%; height: 5rem;
     vertical-align: top; padding: 1rem;
@@ -138,7 +140,7 @@
     transition: background-color .6s ease, color .3s ease;
 
     @media screen and (max-width: 640px) {
-      width: 100%; margin-bottom: 1rem;
+      width: 100%;
     }
 
     > * {
