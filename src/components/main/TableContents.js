@@ -224,7 +224,6 @@ class TableContents extends Component {
 const ListItem = (props) => {
   const { headings, step, scrollTo } = props;
   return headings.map((head, idx) => {
-    console.log('render step', step)
     const classnames = [
       `toc__item`, `h${head.depth}`, `${idx === step ? 'on' : ''}`
     ];
