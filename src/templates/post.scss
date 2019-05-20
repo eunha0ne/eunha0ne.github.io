@@ -58,6 +58,10 @@
     margin-bottom: 1.3em;
   }
 
+  a {
+    color: var(--font-hl); border-bottom: 1px solid var(--font-hl);
+  }
+
   // 강조
   blockquote {
     margin: 3rem 0;
