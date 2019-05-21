@@ -2,12 +2,11 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import TopButton from "../components/main/TopButton";
-import TableContents from "../components/main/TableContents"
-
+import TableContents from "../components/main/TableContents";
 import MetaTags from 'src/components/MetaTags';
-import HeaderBack from "src/components/HeaderBack"
-import NameCard from "src/components/NameCard"
-
+import HeaderBack from "src/components/HeaderBack";
+import NameCard from "src/components/NameCard";
+import Comments from "src/components/comments";
 import "./post.scss";
 import "./themeModify.scss";
 import "prismjs/themes/prism-tomorrow.css";
@@ -51,24 +50,23 @@ export default ({ data, pageContext }) => {
             <HeaderBack />
           </header>
 
-          <div className="post__contents">
+          <section className="post__contents">
             <TableContents headings={post.headings} />
             {tags && <PostTags tags={tags} />}
             <div className="markdown" dangerouslySetInnerHTML={{ __html: post.html }} />
-          </div>
+          </section>
 
-          <footer className="post__footer">
+          <section className="post__footer">
             <PostNavi prev={prev} next={next} />
-            <NameCard/>
-            <TopButton/>
-          </footer>
+            <NameCard />
+            <Comments />
+            <TopButton />
+          </section>
         </article>
       </main>
     </Layout>
   );
 };
-
-// <div className="markdown" dangerouslySetInnerHTML={{ __html: post.html }} />
 
 const PostTags = (props) => {
   const { tags } = props;
