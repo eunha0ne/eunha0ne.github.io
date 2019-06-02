@@ -99,21 +99,13 @@ class TableContents extends Component {
   }
 
   handleHighlight() {
-    const { intervals, currTop, step } = this.info;
-    // const isTopdown = prevTop <= currTop ? true : false;
-    let currStep = step;
-
-    for (let i = currStep; i < intervals.length; i++) {
-      if (intervals[i] <= currTop) {
-        currStep = i;
-      }
-    }
-
-    /*
+    const { intervals, currTop, prevTop, step, revision } = this.info;
+    const isTopdown = prevTop <= currTop ? true : false;
     const dir = isTopdown ? revision : (revision * -1);
     const sightTop = currTop + dir;
     const fExpression = i => isTopdown ? ++i : --i;
     const fCondition = i => isTopdown ? i < intervals.length - 1 : 0 < i;
+    let currStep = step;
 
     for (let i = step; fCondition(i); i = fExpression(i)) {
       const prev = intervals[i], next = intervals[i + 1];
@@ -125,9 +117,8 @@ class TableContents extends Component {
       }
 
       else if (first <= sightTop && sightTop < prev) {
-        // 논리 오류있는 부분 수정할 것
-        // this.info.step = i - 1;
-        // break;
+        this.info.step = i - 1;
+        break;
       }
 
       else if (first <= sightTop && (prev < sightTop && sightTop < next)) {
@@ -140,9 +131,9 @@ class TableContents extends Component {
         break;
       }
     }
-    */
 
     if (this.state.step !== currStep) {
+      this.info.step = currStep;
       this.setState({ step: currStep });
     }
   }
