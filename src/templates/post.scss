@@ -91,10 +91,9 @@
     // 소스 코드
     pre {
       margin-bottom: 4rem;
-      background: var(--bg-sub);
       transition: background-color 1s ease, color 1s ease;
-      font-size: 1.5rem !important;
-      line-height: 1.4 !important;
+      font-size: 1.4rem;
+      line-height: 1.4;
 
       code {
         transition: background-color 1s ease, color 1s ease;
