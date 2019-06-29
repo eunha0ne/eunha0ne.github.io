@@ -1,14 +1,15 @@
 ---
 title: TIL
-date: 2019-06-27
-tags: ["TIL", "2019"]
+date: 2019-06-28
+tags: ["개인학습", "2019"]
 ---
 
-# TIL
-
-Array.from() 메서드는 Array-like(유사 배열) 또는 Iterable(이터러블: 순회 가능한) 객체를 얇게 복사해서 새로운 배열로 반환한다. (ES6)
+# Today I Learned　
+---
 
 > Array.from(arrayLike[, mapFn[, thisArg]])
+
+Array.from() 메서드는 Array-like(유사 배열) 또는 Iterable(이터러블: 순회 가능한) 객체를 얇게 복사해서 새로운 배열로 반환한다. (ES6)
 
 ```javascript
 Array.from('foo'); // ["f", "o", "o"]
@@ -25,10 +26,11 @@ range(0, 4, 1);   // [0, 1, 2, 3, 4]
 range(1, 10, 2);  // [1, 3, 5, 7, 9]
 
 // A부터 Z까지 알파벳 생성
-range(
-  'A'.charCodeAt(0), 'Z'.charCodeAt(0), 1
-).map(x => String.fromCharCode(x));
-// ["A", "B", "C", ..., "Z"]
+range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1)
+  .map(x => String.fromCharCode(x));  // ["A", "B", "C", ..., "Z"]
 ```
 
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
+## References
+---
+
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
