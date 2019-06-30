@@ -4,7 +4,7 @@ date: 2019-06-28
 tags: ["개인학습", "2019"]
 ---
 
-# TIL
+## Array.from()
 ---
 Array.from() 메서드는 Array-like(유사 배열) 또는 Iterable(이터러블: 순회 가능한) 객체를 얇게 복사해서 새로운 배열로 반환한다. (ES6)
 
@@ -40,7 +40,6 @@ range('A'.charCodeAt(0), 'Z'.charCodeAt(0), 1)
   .map(x => String.fromCharCode(x));  // ["A", "B", "C", ..., "Z"]
 ```
 
-## References
----
+### References
 
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from)
