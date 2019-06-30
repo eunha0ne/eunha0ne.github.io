@@ -87,11 +87,10 @@ const Header = (props) => {
   return (
     <header className={`main-header ${classState}`}>
       <div className="main-header__container">
-        <h1 className="main-header__title">{/* ... */}</h1>
         <nav className="menu">
           <Link className="menu__link" to="/">HOME</Link>
-          <Link className="menu__link" to="/about">ABOUT</Link>
-          <Link className="menu__link" to="/archive">ARCHIVE</Link>
+          {/* <Link className="menu__link" to="/about">ABOUT</Link> */}
+          {/* <Link className="menu__link" to="/archive">ARCHIVE</Link> */}
         </nav>
         <ThemeSwitch/>
       </div>
