@@ -45,7 +45,7 @@ export default ({ data, pageContext }) => {
       <main>
         <article className="post">
           <header className="post__header">
-            <h2>{post.frontmatter.title}</h2>
+            <h1>{post.frontmatter.title}</h1>
             <span>{post.frontmatter.date}</span>
             <HeaderBack />
           </header>
