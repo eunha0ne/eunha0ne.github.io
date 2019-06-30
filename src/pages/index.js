@@ -12,6 +12,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       {<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />}
       <main className="index-view">
+        <h1>은하의 개발 블로그입니다.</h1>
         <NameCard/>
         <IndexContents data={data} />
       </main>
