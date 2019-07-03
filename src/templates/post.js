@@ -88,12 +88,12 @@ const PostNavi = (props) => {
     {prev &&
       <Link to={prev.node.fields.slug} className="navi__prev">
         <span>&larr;</span>
-        <p>{prev.node.headings.length > 0 && prev.node.frontmatter.title}</p>
+        <p>{prev.node.frontmatter.title}</p>
       </Link>
     }
     {next &&
       <Link to={next.node.fields.slug} className="navi__next">
-        <p>{next.node.headings.length > 0 && next.node.frontmatter.title}</p>
+        <p>{next.node.frontmatter.title}</p>
         <span>&rarr;</span>
       </Link>
     }

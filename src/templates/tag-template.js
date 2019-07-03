@@ -13,7 +13,7 @@ const Tags = (props) => {
   return (
     <Layout>
       <main className="index-view tags-view">
-        <AllTags/>
+        <AllTags />
         <p className="tag-name">{pageContext.tag}</p>
         <IndexContents data={data} />
       </main>
@@ -43,7 +43,7 @@ query TagsQuery($tag: String!) {
           fields {
             slug
           }
-          excerpt
+          excerpt(pruneLength: 90, truncate: true)
         }
       }
     }
