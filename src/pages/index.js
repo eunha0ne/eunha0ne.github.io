@@ -8,6 +8,7 @@ import './index.scss';
 
 
 const IndexPage = ({ data }) => {
+  console.log(data)
   return (
     <Layout>
       {<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />}
@@ -41,7 +42,7 @@ export const query = graphql`
         fields {
           slug
         }
-        excerpt(pruneLength: 120)
+        excerpt(pruneLength: 90, truncate: true)
       }
     }
   }
