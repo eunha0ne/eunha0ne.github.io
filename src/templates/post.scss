@@ -147,12 +147,12 @@
       font-size: 0; color: var(--font-main); background: var(--bg-none);
       transition: background-color .6s ease, color .3s ease;
 
-      &:nth-child(2) {
-        margin-top: 1rem;
-      }
-
       @media screen and (max-width: 640px) {
         width: 100%;
+
+        &:nth-child(2) {
+          margin-top: 1rem;
+        }
       }
 
       > * {
