@@ -5,11 +5,21 @@ const Comments = (props) => {
   let container = useRef();
 
   // 기존 헤딩 스타일 중복 제거
-  const head = document.head;
-  const styles = document.head.getElementsByTagName('style');
-  if (styles[1] && styles[1].textContent.indexOf('utterances') !== -1) {
-    styles[1].parentNode.removeChild(styles[1]);
-  }
+  const removeUtterStyleOverlap = () => {
+    const head = document.head;
+    const styles = Array.from(document.head.getElementsByTagName('style'));
+    const utterStyles = [];
+
+    styles.forEach((node) => {
+      if (node.textContent.indexOf('utterances') !== -1) {
+        utterStyles.push(node);
+      }
+    });
+
+    utterStyles.forEach((node) => {
+      node.parentNode.removeChild(node);
+    });
+  };
 
   useEffect(() => {
     if (!container.current) {
@@ -25,6 +35,8 @@ const Comments = (props) => {
       async: true,
       crossorigin: 'anonymous',
     };
+
+    removeUtterStyleOverlap();
 
     const script = document.createElement('script');
     Object.keys(config).forEach(key => {
