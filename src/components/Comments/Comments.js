@@ -4,8 +4,17 @@ import { connect } from 'react-redux';
 const Comments = (props) => {
   let container = useRef();
 
+  // 기존 헤딩 스타일 중복 제거
+  const head = document.head;
+  const styles = document.head.getElementsByTagName('style');
+  if (styles[1] && styles[1].textContent.indexOf('utterances') !== -1) {
+    styles[1].parentNode.removeChild(styles[1]);
+  }
+
   useEffect(() => {
-    if (!container.current) return;
+    if (!container.current) {
+      return;
+    }
 
     const themeType = props.isNightMode ? 'github-dark' : 'github-light';
     const config = {
@@ -22,14 +31,8 @@ const Comments = (props) => {
       script.setAttribute(key, config[key]);
     });
 
-    // <기존>
-    // const previousNode = container.current.getElementsByClassName('utterances')[0];
-    // if (previousNode) container.current.removeChild(previousNode);
-    // container.current.appendChild(script);
-
-    const params = new URLSearchParams(window.location.search)
-
     // If the 'commenting' URL param is present then scroll to the comments
+    const params = new URLSearchParams(window.location.search)
     if (params.has('commenting')) {
       const commentsScroll = container.current.getBoundingClientRect().top;
       const scroll = commentsScroll + window.innerHeight;
@@ -45,7 +48,8 @@ const Comments = (props) => {
     // Append the Utterances script to the container
     while (container.current.firstChild) {
       const previousNode = container.current.getElementsByClassName('utterances')[0];
-      container.current.removeChild(previousNode);
+      if (previousNode) container.current.removeChild(previousNode);
+      // container.current.removeChild(previousNode);
       // container.current.firstChild.remove();
     }
     container.current.appendChild(script);
@@ -57,7 +61,7 @@ const Comments = (props) => {
       const originalUrl = window.location.pathname + (search && `?${search}`)
       window.history.replaceState(null, '', originalUrl)
     }
-  },[container.current]);
+  });
 
   return <div className="post-comments" ref={container} />
 }
