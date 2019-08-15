@@ -7,6 +7,7 @@
   "dependencies": {
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.34",
+    "gatsby-plugin-google-analytics": "^2.1.7",
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.6",
@@ -23,7 +24,7 @@
     "lodash.clonedeep": "^4.5.0",
     "node-gyp": "^4.0.0",
     "node-sass": "^4.12.0",
-    "npm": "^6.9.0",
+    "npm": "^6.10.3",
     "prismjs": "^1.16.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
