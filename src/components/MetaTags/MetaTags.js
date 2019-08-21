@@ -57,7 +57,7 @@ function MetaTags(props) {
         { property: 'og:site_name', content: `eunha's dev` }
       ]}
     >
-      <html lang="en" />
+      <html lang="ko" />
     </Helmet>
   );
 }
