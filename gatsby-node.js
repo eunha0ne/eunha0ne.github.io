@@ -1,20 +1,13 @@
 /**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
+ * createPages
  */
 
 const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
 const _ = require("lodash");
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
-
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(`
-    {
+exports.createPages = async ({ actions: { createPage }, graphql }) => {
+  const results = await graphql(`
+    query {
       allMarkdownRemark (
         sort: {order: DESC, fields: [frontmatter___date]}
         limit: 1000
@@ -35,58 +28,57 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-      `).then(result => {
-        if (result.errors) {
-          return reject(result.errors);
-        }
+  `);
 
-        const postTemplate = path.resolve("src/templates/post.js");
-        const tagTemplate = path.resolve("src/templates/tag-template.js");
 
-        // [1]
-        // Create post detail pages
-        const posts = result.data.allMarkdownRemark.edges;
-        posts.forEach(({ node }, index) => {
-          createPage({
-            path: node.fields.slug,
-            component: postTemplate,
-            context: {
-              // Data passed to context is available
-              // in page queries as GraphQL variables.
-              slug: node.fields.slug,
-              prev: index === 0 ? null : posts[index - 1],
-              next: index === posts.length - 1 ? null : posts[index + 1],
-            }
-          });
-        });
+  // [1] Create post pages
+  const postTemplate = path.resolve("src/templates/post.js");
+  const tagTemplate = path.resolve("src/templates/tag-template.js");
+  const posts = results.data.allMarkdownRemark.edges; 
 
-        // [2]
-        // All tags
-        let allTags = [];
-        // Iterate through each post, putting all found tags into `allTags array`
-        _.each(posts, edge => {
-          if (_.get(edge, 'node.frontmatter.tags')) {
-            allTags = allTags.concat(edge.node.frontmatter.tags);
-          }
-        });
+  posts.forEach(({ node }, index) => {
+    createPage({
+      path: node.fields.slug,
+      component: postTemplate,
+      // Data passed to context is available in page queries as GraphQL variables.
+      context: {
+        slug: node.fields.slug,
+        prev: index === 0 ? null : posts[index - 1],
+        next: index === posts.length - 1 ? null : posts[index + 1],
+      }
+    });
+  });
 
-        // Eliminate duplicate tags
-        allTags = _.uniq(allTags);
-        allTags.forEach((tag, index) => {
-          createPage({
-            // path: `/${_.kebabCase(tag)}/`,
-            path: `/${tag}/`,
-            component: tagTemplate,
-            context: {
-              tag,
-            }
-          });
-        });
+  
+  // [2] Create tag pages
+  let allTags = [];
 
-      })
-    )
+  // Iterate through each post, putting all found tags into `allTags array`
+  _.each(posts, edge => {
+    if (_.get(edge, 'node.frontmatter.tags')) {
+      allTags = allTags.concat(edge.node.frontmatter.tags);
+    }
+  });
+
+  // Eliminate duplicate tags
+  allTags = _.uniq(allTags);
+  allTags.forEach(tag => {
+    createPage({
+      path: `/${tag}/`,
+      component: tagTemplate,
+      context: {
+        tag,
+      }
+    });
   });
 };
+
+
+/**
+ * onCreateNode
+ */
+
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
