@@ -1,15 +1,64 @@
-/**
- * createPages
- */
-
 const path = require(`path`);
-const _ = require("lodash");
+const _ = require('lodash');
+const { createFilePath } = require(`gatsby-source-filesystem`);
+const template = {
+  post: path.resolve('src/templates/post.js'),
+  tag: path.resolve('src/templates/tag-template.js'),
+};
 
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
-  const results = await graphql(`
+  const results = await getAllPagesData(graphql);
+  if (results.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
+  }
+
+  const { data } = results;
+  const allPosts = data.allMarkdownRemark.edges;
+  let allTags = [];
+
+  allPosts.forEach(({ node }, index) => {
+    allTags = allTags.concat(node.frontmatter.tags);
+    createPage({
+      path: node.fields.slug,
+      component: template.post,
+      context: {
+        slug: node.fields.slug,
+        prev: index === 0 ? null : allPosts[index - 1],
+        next: index === allPosts.length - 1 ? null : allPosts[index + 1],
+      },
+    });
+  });
+
+  allTags = _.uniq(allTags);
+  allTags.forEach(tag => {
+    createPage({
+      path: `/${tag}/`,
+      component: template.tag,
+      context: {
+        tag,
+      },
+    });
+  });
+};
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    });
+  }
+};
+
+const getAllPagesData = graphql => {
+  return graphql(`
     query {
-      allMarkdownRemark (
-        sort: {order: DESC, fields: [frontmatter___date]}
+      allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
         edges {
@@ -29,65 +78,4 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       }
     }
   `);
-
-
-  // [1] Create post pages
-  const postTemplate = path.resolve("src/templates/post.js");
-  const tagTemplate = path.resolve("src/templates/tag-template.js");
-  const posts = results.data.allMarkdownRemark.edges; 
-
-  posts.forEach(({ node }, index) => {
-    createPage({
-      path: node.fields.slug,
-      component: postTemplate,
-      // Data passed to context is available in page queries as GraphQL variables.
-      context: {
-        slug: node.fields.slug,
-        prev: index === 0 ? null : posts[index - 1],
-        next: index === posts.length - 1 ? null : posts[index + 1],
-      }
-    });
-  });
-
-  
-  // [2] Create tag pages
-  let allTags = [];
-
-  // Iterate through each post, putting all found tags into `allTags array`
-  _.each(posts, edge => {
-    if (_.get(edge, 'node.frontmatter.tags')) {
-      allTags = allTags.concat(edge.node.frontmatter.tags);
-    }
-  });
-
-  // Eliminate duplicate tags
-  allTags = _.uniq(allTags);
-  allTags.forEach(tag => {
-    createPage({
-      path: `/${tag}/`,
-      component: tagTemplate,
-      context: {
-        tag,
-      }
-    });
-  });
-};
-
-
-/**
- * onCreateNode
- */
-
-const { createFilePath } = require(`gatsby-source-filesystem`);
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    });
-  }
 };
