@@ -1,15 +1,12 @@
 import React from 'react';
-import { graphql } from 'gatsby'
+import { graphql } from 'gatsby';
 import Layout from 'src/components/layout';
 import IndexContents from 'src/components/IndexContents';
 import AllTags from 'src/components/AllTags';
-import './tag-template.scss'
+import './tag.scss';
 
-// import { connect } from 'react-redux';
-// import { toggleTheme } from 'src/state/app';
-
-const Tags = (props) => {
-  const { data, pageContext }= props;
+const Tags = props => {
+  const { data, pageContext } = props;
   return (
     <Layout>
       <main className="index-view tags-view">
@@ -19,7 +16,7 @@ const Tags = (props) => {
       </main>
     </Layout>
   );
-}
+};
 
 // export default connect(state => {
 //   return ({ isNightMode: state.app.isNightMode });
@@ -27,8 +24,8 @@ const Tags = (props) => {
 export default Tags;
 
 export const query = graphql`
-query TagsQuery($tag: String!) {
-  allMarkdownRemark(
+  query TagsQuery($tag: String!) {
+    allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { eq: $tag } } }
@@ -48,4 +45,4 @@ query TagsQuery($tag: String!) {
       }
     }
   }
-`
+`;
