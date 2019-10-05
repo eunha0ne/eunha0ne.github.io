@@ -1,6 +1,6 @@
 {
   "name": "gatsby-starter-default",
-  "private": false,
+  "private": true,
   "description": "은하의 개발 블로그입니다.",
   "version": "0.1.0",
   "author": "Kim Gyu-sik <eunha0ne@gmail.com>",
@@ -39,7 +39,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "mocha",

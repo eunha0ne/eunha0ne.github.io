@@ -1,7 +1,7 @@
-
 .post {
   // padding-top: 10rem;
-  font-size: 1.6rem; line-height: 1.9;
+  font-size: 1.6rem;
+  line-height: 1.9;
   transition: background-color 1s ease, border 1s ease;
 }
 
@@ -10,9 +10,11 @@
   padding-top: 100px;
 
   h1 {
-    padding: 0 11rem; margin-bottom: 150px;
+    padding: 0 11rem;
+    margin-bottom: 150px;
     color: var(--font-main);
-    font-size: 3.84rem; line-height: 1.4;
+    font-size: 3.84rem;
+    line-height: 1.4;
     text-align: center;
     box-sizing: border-box;
 
@@ -22,16 +24,23 @@
   }
 
   span {
-    display: inline-block; width: 100%;
-    font-size: 1.3rem; color: var(--font-sub); text-align: right;
+    display: inline-block;
+    width: 100%;
+    font-size: 1.3rem;
+    color: var(--font-sub);
+    text-align: right;
     margin: 0px 10px 10px 0;
   }
 }
 
 .post__contents {
-  display: flex; flex-direction: column;
-  position: relative; padding: 3rem;
-  box-sizing: border-box; border-radius: .5rem; border: 1px solid var(--border-main);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-main);
   background: var(--bg-none); // var(--bg-main);
   transition: background-color 1s ease, border 1s ease;
   margin-bottom: 1rem;
@@ -44,14 +53,21 @@
     position: relative;
 
     // 엘리먼트
-    h1, h2, h3, h4, h5 {
-      color: var(--font-main); margin-bottom: 2rem; margin-top: 8rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: var(--font-main);
+      margin-bottom: 2rem;
+      margin-top: 8rem;
     }
 
     p {
       color: var(--font-sub);
       margin-top: 1em;
-      text-shadow: 0 0 .1px rgba(0,0,0,.3); letter-spacing: -.5px;
+      text-shadow: 0 0 0.1px rgba(0, 0, 0, 0.3);
+      letter-spacing: -0.5px;
     }
 
     li {
@@ -59,19 +75,26 @@
     }
 
     a {
-      color: var(--font-hl); border-bottom: 1px solid var(--font-hl);
+      color: var(--font-hl);
+      border-bottom: 1px solid var(--font-hl);
     }
 
     // 강조
     blockquote {
       margin: 3rem 0;
       p {
-        padding: 1rem 2rem; border-radius: 0 .5rem .5rem 0;
-        position: relative; color: var(--font-sub);
+        padding: 1rem 2rem;
+        border-radius: 0 0.5rem 0.5rem 0;
+        position: relative;
+        color: var(--font-sub);
         background-color: var(--bg-hl-light1);
 
         &:before {
-          content: ''; display: inline-block; height: 100%; position: absolute; transform: translate(-2rem, -1rem);
+          content: '';
+          display: inline-block;
+          height: 100%;
+          position: absolute;
+          transform: translate(-2rem, -1rem);
           border-left: 7px solid var(--bg-hl-light);
         }
 
@@ -95,32 +118,34 @@
   }
 
   .inner-tags {
-    position: relative; text-align: right;
+    position: relative;
+    text-align: right;
     font-size: 1.3rem;
 
     a {
-      padding: 0.75rem; margin: 0 0.5rem;
+      padding: 0.75rem;
+      margin: 0 0.5rem;
       // border: 1px solid var(--border-main);
       border-radius: 15px;
-      color: var(--font-sub); background: var(--bg-none);
-      box-shadow: 2px 2px 4px rgba(0,0,0,.05);
+      color: var(--font-sub);
+      background: var(--bg-none);
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
       transition: background-color 1s ease;
       cursor: pointer;
 
       &:before {
-        content: '#'; display: inline-block; margin-right: 0.25rem;
+        content: '#';
+        display: inline-block;
+        margin-right: 0.25rem;
       }
     }
 
     a:hover {
-      color: white; background: var(--bg-hl-light);
-      &:before {
-
-      }
+      color: white;
+      background: var(--bg-hl-light);
     }
   }
 }
-
 
 .post__footer {
   display: flex;
@@ -134,11 +159,18 @@
 
   .navi {
     a {
-      display: inline-block; width: 49%; height: 5rem;
-      vertical-align: top; padding: 1rem;
-      box-sizing: border-box; border: 1px solid var(--border-main); border-radius: .5rem;
-      font-size: 0; color: var(--font-main); background: var(--bg-none);
-      transition: background-color .6s ease, color .3s ease;
+      display: inline-block;
+      width: 49%;
+      height: 5rem;
+      vertical-align: top;
+      padding: 1rem;
+      box-sizing: border-box;
+      border: 1px solid var(--border-main);
+      border-radius: 0.5rem;
+      font-size: 0;
+      color: var(--font-main);
+      background: var(--bg-none);
+      transition: background-color 0.6s ease, color 0.3s ease;
 
       @media screen and (max-width: 640px) {
         width: 100%;
@@ -149,9 +181,14 @@
       }
 
       > * {
-        position: relative; top: 50%; transform: translateY(-50%);
-        display: inline-block; vertical-align: top; box-sizing: border-box;
-        font-size: 1.3rem; text-align: center;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        vertical-align: top;
+        box-sizing: border-box;
+        font-size: 1.3rem;
+        text-align: center;
       }
 
       span {
@@ -160,13 +197,20 @@
 
       p {
         width: 92%;
-        text-overflow: ellipsis; overflow: hidden; white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
 
-      &:link { color: var(--font-sub); }
-      &:link:hover { text-decoration: none; }
+      &:link {
+        color: var(--font-sub);
+      }
+      &:link:hover {
+        text-decoration: none;
+      }
       &:hover {
-        background-color: var(--bg-hl-light); color: white;
+        background-color: var(--bg-hl-light);
+        color: white;
         span {
           color: white;
         }
@@ -182,15 +226,29 @@
     }
 
     &:after {
-      content: ''; clear: both;
+      content: '';
+      clear: both;
     }
-
   }
 
   .post-comments {
     background: var(--bg-none);
-    padding: 1rem; box-sizing: border-box; border: 1px solid var(--border-main); border-radius: .5rem;
-    transition: background-color .6s ease, color .3s ease;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: 1px solid var(--border-main);
+    border-radius: 0.5rem;
+    transition: background-color 0.6s ease, color 0.3s ease;
   }
+}
 
+// 테마 임베딩 보정
+:not(pre) > code[class*='language-'] {
+  background: var(--bg-sub); // !important;
+  color: var(--font-sub);
+  padding: 0.2rem 0.5rem;
+  padding-right: 0;
+}
+
+pre[class*='language-'] {
+  font-size: 1.3rem;
 }

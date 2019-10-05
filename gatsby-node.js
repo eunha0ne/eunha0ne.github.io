@@ -3,7 +3,7 @@ const _ = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const template = {
   post: path.resolve('src/templates/post.js'),
-  tag: path.resolve('src/templates/tag-template.js'),
+  tag: path.resolve('src/templates/tag.js'),
 };
 
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
