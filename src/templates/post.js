@@ -30,8 +30,11 @@ export const query = graphql`
 export default ({ data, pageContext }) => {
   const { next, prev } = pageContext;
   const post = data.markdownRemark;
-  // const { title, tags } = data.markdownRemark.frontmatter;
 
+  // 개발 환경에서 frontmatter에 간혈적으로 접근하지 못하는 이슈가 있음
+  // 분기 처리는 해결 방법이 아님, 랜더 함수에는 리턴한 결과가 필요함
+  // console.log(post) // null
+  
   return (
     <Layout>
       <MetaTags
