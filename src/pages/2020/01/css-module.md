@@ -118,7 +118,7 @@ CSS를 객체지향적인 관점에서 바라보고 다루는 방법론으로 �
 OOCSS와 BEM을 토대로 발전한 방법론으로 그 사용에 따라 분류해서 다루는 개발 방식. 총 다섯가지 형태로 분류하여 구분 함
 
 - Categories
-  1. Base
+  1. [Base](#Base)
   2. Layout
   3. Modules
   4. State
@@ -162,8 +162,8 @@ OOCSS와 BEM을 토대로 발전한 방법론으로 그 사용에 따라 분류�
 ```
 
 ```html
-<div class="l-box m-profile m-profile—-is-pro-user">
-  <img class="m-avatar m-profile__image" />
+<div class="m-profile m-profile—-is-pro-user l-box">
+  <img class="m-profile__avatar l-image" />
   <p class="m-profile__bio">...내용</p>
 </div>
 ```
