@@ -1,7 +1,7 @@
 ---
 title: CSS as module
 date: 2020-01-27
-tags: ['요약', '2020']
+tags: ['방법론', '요약', '2020']
 ---
 
 > Replace “Can you build this” with “Can you maintain this without losing your minds?” - Nicolas Gallagher
