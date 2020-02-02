@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{208:function(n,e,o){"use strict";o.r(e);var a=o(0),c=o.n(a),t=o(252),i=o.n(t);e.default=function(){var n=[{name:"Bob"},{name:"Alice"}],e=i()(n).concat([{name:"John"}]);return console.log(n[0]===e[0]),c.a.createElement("div",null)}}}]);
-//# sourceMappingURL=component---src-pages-note-js-e8f67279822d61fb20c4.js.map
