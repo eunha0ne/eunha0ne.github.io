@@ -153,12 +153,8 @@ class TableContents extends Component {
     this.info.currTop = this.info.scrollTops[0];
   }
 
-  // === 집에가서 수정할 부분 ===
   setTableContentsPos() {
-    // const doc = document.body;
     const article = this.node.article;
-    // const docAutoMarginVal = doc.offsetWidth - article.offsetWidth;
-    // const tableContentsPos = article.offsetWidth + (docAutoMarginVal / 2);
     const tableContentsPos = article.offsetWidth;
 
     this.node.asideRef.current.style.transform = `translateX(${ tableContentsPos }px)`;
@@ -211,8 +207,9 @@ class TableContents extends Component {
   render() {
     const { step } = this.state;
     const { name, headings } = this.props;
+
     return (
-      <div className="toc" ref={this.node.asideRef}>
+      <div className={['toc', !headings.length ? 'toc--none' : ''].join(' ')} ref={this.node.asideRef}>
         <p className="toc__title">{name}</p>
         <ul className="toc__list">
           <ListItem headings={headings} step={step} scrollTo={this.triggerScrollTo} />
@@ -225,14 +222,14 @@ class TableContents extends Component {
 const ListItem = (props) => {
   const { headings, step, scrollTo } = props;
   return headings.map((head, idx) => {
-    const classnames = [
-      `toc__item`, `h${head.depth}`, `${idx === step ? 'on' : ''}`
+    const classes = [
+      `toc__item`, `toc__item--h${head.depth}`, `${idx === step ? 'is-active' : ''}`
     ];
 
     return (
       <li
         key={`toc-${idx}`}
-        className={classnames.join(' ')}
+        className={classes.join(' ')}
         onClick={event => scrollTo(event, idx)}
       >
         {head.value}
