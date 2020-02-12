@@ -1,5 +1,5 @@
 .toc {
-  padding: 1.5rem;
+  
   margin-left: -15px;
   position: fixed;
   top: 45rem;
@@ -30,21 +30,25 @@
   }
 
   &__list {
-    padding: 0;
+    padding: 1.5rem 0;
     margin: 0;
     display: flex;
     flex-direction: column;
   }
 
   &__item {
-    position: relative;;
     margin: 0;
-    padding: 0;
+    padding: 0 1.5rem;
+    position: relative;
     list-style: none;
     line-height: 2;
     color: var(--font-sub);
     cursor: pointer;
     user-select: none;
+
+    &:hover {
+      background: hsla(82, 55%, 54%, .2)
+    }
 
     &:before {
       content: '\2055';
@@ -60,8 +64,10 @@
     }
 
     &--h3 {
+      font-size: 1.3rem;
       &:before {
-        margin: 0 0.4rem;
+        content: '\2055';
+        margin: 0 0.4rem 0 0.8rem;
       }
     }
 
