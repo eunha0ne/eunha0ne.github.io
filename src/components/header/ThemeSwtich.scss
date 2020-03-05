@@ -116,6 +116,9 @@ $arrow-color: var(--border-main);
     transform: translateX(-50%);
     font-size: 1.3rem;
     white-space: nowrap;
+    @media only screen and (max-width: 760px) {
+      transform: translateX(-78%);
+    }
 
     span {
       display: inline-block;
@@ -135,13 +138,16 @@ $arrow-color: var(--border-main);
         width: 0;
         height: 0;
         position: absolute;
-        left: 58%;
+        left: 50%;
         top: -7px;
-        transform: translateX(-50%);
+        transform: translateX(41%);
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
         border-bottom: 7px solid $arrow-color;
-        transition: border-color 1s ease;
+        transition: border 1s ease;
+        @media only screen and (max-width: 760px) {
+          transform: translateX(278%);
+        }
       }
     }
   }

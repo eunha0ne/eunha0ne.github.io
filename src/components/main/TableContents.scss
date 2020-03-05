@@ -1,12 +1,11 @@
 .toc {
-  
   margin-left: -15px;
-  position: fixed;
-  top: 45rem;
-  z-index: 100;
   display: inline-block;
   width: 25rem;
   height: auto;
+  position: fixed;
+  top: 45rem;
+  z-index: 100;
   overflow: hidden;
   font-size: 1.4rem;
   border: 1px solid var(--border-main);
@@ -37,17 +36,17 @@
   }
 
   &__item {
+    cursor: pointer;
     margin: 0;
     padding: 0 1.5rem;
     position: relative;
     list-style: none;
     line-height: 2;
     color: var(--font-sub);
-    cursor: pointer;
     user-select: none;
 
     &:hover {
-      background: hsla(82, 55%, 54%, .2)
+      text-decoration: underline;
     }
 
     &:before {
@@ -66,8 +65,9 @@
     &--h3 {
       font-size: 1.3rem;
       &:before {
-        content: '\2055';
+        content: '-';
         margin: 0 0.4rem 0 0.8rem;
+        vertical-align: middle;
       }
     }
 
