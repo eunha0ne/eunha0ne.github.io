@@ -21,8 +21,6 @@ class PageHeader extends React.Component {
       isDocking: this.props.isDocking
     };
 
-    // console.log('PageHeader', this.props);
-
     this.handleToggleHeader = this.handleToggleHeader.bind(this);
     this.handleToggleHeaderThrottle = throttle(this.handleToggleHeader, 100);
     this.getCurrentScrollPos = this.getCurrentScrollPos.bind(this);
@@ -63,7 +61,7 @@ class PageHeader extends React.Component {
   getCurrentScrollPos() {
     const currScrollTop =
       document.documentElement.scrollTop || document.scrollingElement.scrollTop;
-    let scrollTops = [].concat(this.state.scrollTops);
+    let scrollTops = [].concat(this.state.scrollTop);
     let curr = 0;
     let prev = 0;
 
