@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleAppTheme, isAppThemeClick } from 'src/actions';
+import { toggleAppTheme, themeSwitchClick } from 'src/actions';
 
 import './ThemeSwtich.scss';
 
@@ -8,57 +8,37 @@ class ThemeSwitch extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isNight: props.isNightMode,
-      isOnClick: props.isAppThemeClick
-    };
-
     this.handleClick = this.handleClick.bind(this);
-    this.toggleThemeName = this.toggleThemeName.bind(this);
+    this.setThemeClass = this.setThemeClass.bind(this);
   }
 
-  toggleThemeName(currTheme) {
+  setThemeClass(name) {
     const classNames = ['day', 'night'];
     const nodeClasses = document.body.classList;
 
     nodeClasses.remove(...classNames);
-    nodeClasses.add(currTheme);
+    nodeClasses.add(name);
   }
 
   handleClick() {
-    const currState = {
-      isNight: !this.state.isNight,
-      isOnClick: true
-    };
+    const { isNightMode, toggleAppTheme, themeSwitchClick } = this.props;
+    const reverseMode = !isNightMode;
+    const name = reverseMode ? 'night' : 'day';
 
-    // 현재 테마와 반대 속성으로 설정
-    this.setState(currState, () => {
-      const { isNight, isOnClick } = this.state;
-      const currTheme = isNight ? 'night' : 'day';
-
-      // 앱 전역에 상태 전달
-      this.props.dispatch(toggleAppTheme(isNight));
-      this.props.dispatch(isAppThemeClick(isOnClick));
-      this.toggleThemeName(currTheme);
-    });
-  }
-
-  componentDidMount() {
-    const { isNight } = this.state;
-    const currTheme = isNight ? 'night' : 'day';
-
-    this.toggleThemeName(currTheme);
+    toggleAppTheme(reverseMode);
+    themeSwitchClick(true);
+    this.setThemeClass(name);
   }
 
   render() {
-    const { isNight, isOnClick } = this.state;
+    const { isNightMode, isModeChanged } = this.props;
 
     return (
       <div className="theme-switch">
         <button className="theme-switch__btn" onClick={this.handleClick}>
           <div
             className={`theme-switch__displayer ${
-              isNight ? 'is-night' : 'is-day'
+              isNightMode ? 'is-night' : 'is-day'
             }`}
           >
             <div className="theme-switch__item theme-switch__item--night">
@@ -70,7 +50,7 @@ class ThemeSwitch extends React.Component {
           </div>
         </button>
 
-        {!isOnClick && (
+        {!isModeChanged && (
           <div className="theme-switch__guider">
             <span>Change your mood!</span>
           </div>
@@ -80,9 +60,14 @@ class ThemeSwitch extends React.Component {
   }
 }
 
-export default connect(state => {
-  return {
-    isNightMode: state.appTheme.isNightMode,
-    isAppThemeClick: state.appTheme.isThemeSwitchClick
-  };
-}, null)(ThemeSwitch);
+const mapStateToProps = state => ({
+  isNightMode: state.appTheme.isNightMode,
+  isModeChanged: state.appTheme.isModeChanged
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggleAppTheme: bool => dispatch(toggleAppTheme(bool)),
+  themeSwitchClick: bool => dispatch(themeSwitchClick(bool))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeSwitch);

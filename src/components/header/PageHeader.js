@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
+import { themeSwitchClick } from 'src/actions';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 import throttle from '../common/throttle.js';
+
 import ReaderBoard from './ReaderBoard';
 import ThemeSwitch from './ThemeSwitch';
+
 import './PageHeader.scss';
 
-class PageHeader extends Component {
+class PageHeader extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      positions: this.props.positions,
+      scrollTop: this.props.scrollTop,
       hasReader: this.props.hasReader,
       isRolldown: this.props.isRolldown,
       isDocking: this.props.isDocking
     };
+
+    // console.log('PageHeader', this.props);
 
     this.handleToggleHeader = this.handleToggleHeader.bind(this);
     this.handleToggleHeaderThrottle = throttle(this.handleToggleHeader, 100);
@@ -31,30 +37,40 @@ class PageHeader extends Component {
   }
 
   handleToggleHeader() {
+    const { isDocking } = this.state;
     const pos = this.getCurrentScrollPos();
-    const isDocking = pos.curr <= 0 ? true : false;
+    const isOffsetTop = pos.curr <= 0;
     let isRolldown = false;
 
-    if (pos.prev < pos.curr) isRolldown = false;
-    else if (pos.prev > pos.curr) isRolldown = true;
+    if (pos.prev < pos.curr) {
+      isRolldown = false;
+    } else if (pos.prev > pos.curr) {
+      isRolldown = true;
+    }
 
-    this.setState({
-      positions: pos.curr,
-      isRolldown: isRolldown,
-      isDocking: isDocking
-    });
+    this.setState(
+      {
+        scrollTop: pos.curr,
+        isRolldown: isRolldown,
+        isDocking: isOffsetTop
+      },
+      () => {
+        const { isDocking } = this.state;
+        this.props.themeSwitchClick(!isDocking);
+      }
+    );
   }
 
   getCurrentScrollPos() {
-    const scrollTop =
+    const currScrollTop =
       document.documentElement.scrollTop || document.scrollingElement.scrollTop;
-    let curr = 0,
-      prev = 0;
-    let positions = [].concat(this.state.positions);
+    let scrollTops = [].concat(this.state.scrollTops);
+    let curr = 0;
+    let prev = 0;
 
-    prev = positions.shift();
-    positions.push(scrollTop);
-    curr = positions[0];
+    prev = scrollTops.shift();
+    scrollTops.push(currScrollTop);
+    curr = scrollTops[0];
 
     return { prev: prev, curr: curr };
   }
@@ -73,11 +89,10 @@ class PageHeader extends Component {
 
   render() {
     const { ...state } = this.state;
+
     return <Header {...state} />;
   }
 }
-
-export default PageHeader;
 
 const Header = props => {
   const { hasReader, isRolldown, isDocking } = props;
@@ -105,18 +120,28 @@ const Header = props => {
 };
 
 PageHeader.defaultProps = {
-  positions: 0,
+  scrollTop: 0,
   hasReader: false,
   isRolldown: false,
   isDocking: true
 };
 
 PageHeader.propTypes = {
-  positions: PropTypes.number.isRequired,
+  scrollTop: PropTypes.number.isRequired,
   hasReader: PropTypes.bool.isRequired,
   isRolldown: PropTypes.bool.isRequired,
   isDocking: PropTypes.bool.isRequired
 };
+
+const mapStateToProps = state => ({
+  isThemeSwitchClick: state.appTheme.isThemeSwitchClick
+});
+
+const mapDispatchToProps = dispatch => ({
+  themeSwitchClick: bool => dispatch(themeSwitchClick(bool))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageHeader);
 
 /* <참고 자료> nested cases and how to shape its proptypes.
 React.PropTypes.arrayOf(
@@ -127,5 +152,5 @@ React.PropTypes.arrayOf(
     aspectRatio: React.PropTypes.number.isRequired,
     lightboxImage: lightboxImageValidator,
   })
-).isRequired.apply(this, arguments);
+  ).isRequired.apply(this, arguments);
 */

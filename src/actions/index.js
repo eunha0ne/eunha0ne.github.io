@@ -1,12 +1,12 @@
-export const TOGGLE_THEME = 'TOGGLE_THEME';
+export const TOGGLE_APP_THEME = 'TOGGLE_APP_THEME';
 export const THEME_SWITCH_CLICK = 'THEME_SWITCH_CLICK';
 
 export const toggleAppTheme = isNightMode => ({
-  type: TOGGLE_THEME,
+  type: TOGGLE_APP_THEME,
   isNightMode
 });
 
-export const isAppThemeClick = isThemeSwitchClick => ({
+export const themeSwitchClick = isModeChanged => ({
   type: THEME_SWITCH_CLICK,
-  isThemeSwitchClick
+  isModeChanged
 });

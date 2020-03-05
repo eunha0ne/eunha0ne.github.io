@@ -10,7 +10,7 @@ class HeaderBack extends Component {
     super(props);
 
     this.state = {
-      isNightMode: this.props.isNightMode
+      isNightMode: props.isNightMode
     };
 
     this.node = { back: React.createRef() };
