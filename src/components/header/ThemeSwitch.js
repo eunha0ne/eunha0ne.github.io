@@ -20,14 +20,25 @@ class ThemeSwitch extends React.Component {
     nodeClasses.add(name);
   }
 
+  getThemeName(reverseMode) {
+    if (reverseMode === undefined || reverseMode === null) {
+      reverseMode = this.props.isNightMode;
+    }
+
+    return reverseMode ? 'night' : 'day';
+  }
+
   handleClick() {
     const { isNightMode, toggleAppTheme, themeSwitchClick } = this.props;
     const reverseMode = !isNightMode;
-    const name = reverseMode ? 'night' : 'day';
 
     toggleAppTheme(reverseMode);
     themeSwitchClick(true);
-    this.setThemeClass(name);
+    this.setThemeClass(this.getThemeName(reverseMode));
+  }
+
+  componentDidMount() {
+    this.setThemeClass(this.getThemeName());
   }
 
   render() {
