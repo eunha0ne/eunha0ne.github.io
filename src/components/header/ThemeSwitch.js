@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleTheme } from 'src/state/app';
+import { toggleAppTheme, isAppThemeClick } from 'src/actions';
 
 import './ThemeSwtich.scss';
 
@@ -9,7 +9,8 @@ class ThemeSwitch extends React.Component {
     super(props);
 
     this.state = {
-      isNight: props.isNightMode
+      isNight: props.isNightMode,
+      isOnClick: props.isAppThemeClick
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -25,23 +26,32 @@ class ThemeSwitch extends React.Component {
   }
 
   handleClick() {
-    this.setState({ isNight: !this.state.isNight }, () => {
-      const isNight = this.state.isNight;
+    const currState = {
+      isNight: !this.state.isNight,
+      isOnClick: true
+    };
+
+    // 현재 테마와 반대 속성으로 설정
+    this.setState(currState, () => {
+      const { isNight, isOnClick } = this.state;
       const currTheme = isNight ? 'night' : 'day';
 
-      this.props.dispatch(toggleTheme(isNight));
+      // 앱 전역에 상태 전달
+      this.props.dispatch(toggleAppTheme(isNight));
+      this.props.dispatch(isAppThemeClick(isOnClick));
       this.toggleThemeName(currTheme);
     });
   }
 
   componentDidMount() {
-    const currTheme = this.state.isNight ? 'night' : 'day';
+    const { isNight } = this.state;
+    const currTheme = isNight ? 'night' : 'day';
 
     this.toggleThemeName(currTheme);
   }
 
   render() {
-    const { isNight } = this.state;
+    const { isNight, isOnClick } = this.state;
 
     return (
       <div className="theme-switch">
@@ -60,17 +70,19 @@ class ThemeSwitch extends React.Component {
           </div>
         </button>
 
-        <div className="theme-switch__guider">
-          <span>Change your mood!</span>
-        </div>
+        {!isOnClick && (
+          <div className="theme-switch__guider">
+            <span>Change your mood!</span>
+          </div>
+        )}
       </div>
     );
   }
 }
 
-export default connect(
-  state => ({
-    isNightMode: state.app.isNightMode
-  }),
-  null
-)(ThemeSwitch);
+export default connect(state => {
+  return {
+    isNightMode: state.appTheme.isNightMode,
+    isAppThemeClick: state.appTheme.isThemeSwitchClick
+  };
+}, null)(ThemeSwitch);

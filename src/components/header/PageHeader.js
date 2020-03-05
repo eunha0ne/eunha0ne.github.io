@@ -1,10 +1,10 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import throttle from "../common/throttle.js"
-import ReaderBoard from "./ReaderBoard";
-import ThemeSwitch from "./ThemeSwitch"
-import "./PageHeader.scss";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import throttle from '../common/throttle.js';
+import ReaderBoard from './ReaderBoard';
+import ThemeSwitch from './ThemeSwitch';
+import './PageHeader.scss';
 
 class PageHeader extends Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class PageHeader extends Component {
       isRolldown: this.props.isRolldown,
       isDocking: this.props.isDocking
     };
-
 
     this.handleToggleHeader = this.handleToggleHeader.bind(this);
     this.handleToggleHeaderThrottle = throttle(this.handleToggleHeader, 100);
@@ -47,8 +46,10 @@ class PageHeader extends Component {
   }
 
   getCurrentScrollPos() {
-    const scrollTop = document.documentElement.scrollTop || document.scrollingElement.scrollTop;
-    let curr = 0, prev = 0;
+    const scrollTop =
+      document.documentElement.scrollTop || document.scrollingElement.scrollTop;
+    let curr = 0,
+      prev = 0;
     let positions = [].concat(this.state.positions);
 
     prev = positions.shift();
@@ -61,7 +62,9 @@ class PageHeader extends Component {
   componentDidMount() {
     this.checkPathname();
 
-    window.addEventListener('scroll', this.handleToggleHeaderThrottle, { passive: true });
+    window.addEventListener('scroll', this.handleToggleHeaderThrottle, {
+      passive: true
+    });
   }
 
   componentWillUnmount() {
@@ -70,34 +73,36 @@ class PageHeader extends Component {
 
   render() {
     const { ...state } = this.state;
-    return (
-      <Header { ...state } />
-    );
+    return <Header {...state} />;
   }
 }
 
 export default PageHeader;
 
-const Header = (props) => {
+const Header = props => {
   const { hasReader, isRolldown, isDocking } = props;
   const classState = isDocking
     ? 'main-header--docked'
-    : (isRolldown ? 'main-header--fade-in' : 'main-header--fade-out');
+    : isRolldown
+    ? 'main-header--fade-in'
+    : 'main-header--fade-out';
 
   return (
     <header className={`main-header ${classState}`}>
       <div className="main-header__container">
         <nav className="menu">
-          <Link className="menu__link" to="/">HOME</Link>
+          <Link className="menu__link" to="/">
+            HOME
+          </Link>
           {/* <Link className="menu__link" to="/about">ABOUT</Link> */}
           {/* <Link className="menu__link" to="/archive">ARCHIVE</Link> */}
         </nav>
-        <ThemeSwitch/>
+        <ThemeSwitch />
       </div>
-      {hasReader && <ReaderBoard/>}
+      {hasReader && <ReaderBoard />}
     </header>
   );
-}
+};
 
 PageHeader.defaultProps = {
   positions: 0,
@@ -110,7 +115,7 @@ PageHeader.propTypes = {
   positions: PropTypes.number.isRequired,
   hasReader: PropTypes.bool.isRequired,
   isRolldown: PropTypes.bool.isRequired,
-  isDocking: PropTypes.bool.isRequired,
+  isDocking: PropTypes.bool.isRequired
 };
 
 /* <참고 자료> nested cases and how to shape its proptypes.

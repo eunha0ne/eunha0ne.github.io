@@ -78,9 +78,8 @@ const Comments = props => {
   return <div className="post-comments" ref={container} />;
 };
 
-export default connect(
-  state => ({
-    isNightMode: state.app.isNightMode
-  }),
-  null
-)(Comments);
+export default connect(state => {
+  return {
+    isNightMode: state.appTheme.isNightMode
+  };
+}, null)(Comments);
