@@ -37,7 +37,6 @@ class PageHeader extends React.Component {
   }
 
   handleToggleHeader() {
-    const { isDocking } = this.state;
     const pos = this.getCurrentScrollPos();
     const isOffsetTop = pos.curr <= 0;
     let isRolldown = false;
