@@ -1,24 +1,6 @@
-import * as types from 'src/actions/ActionTypes';
+import { combineReducers } from 'redux';
+import appTheme from './appTheme';
 
-const initialState = {
-  isNightMode: false,
-};
+const reducers = combineReducers({ appTheme });
 
-// const TOGGLE_THEME = 'TOGGLE_THEME';
-
-// export const toggleTheme = isNightMode => (
-//   { type: TOGGLE_THEME, isNightMode }
-// );
-
-
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case TOGGLE_THEME: {
-      return { ...state, isNightMode: action.isNightMode }
-    }
-
-    default: {
-      return state;
-    }
-  }
-};
+export default reducers;

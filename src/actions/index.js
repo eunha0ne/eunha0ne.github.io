@@ -1,5 +1,12 @@
-import * as types from './ActionTypes';
+export const TOGGLE_APP_THEME = 'TOGGLE_APP_THEME';
+export const THEME_SWITCH_CLICK = 'THEME_SWITCH_CLICK';
 
-export const toggleTheme = isNightMode => (
-  { type: TOGGLE_THEME, isNightMode }
-);
+export const toggleAppTheme = isNightMode => ({
+  type: TOGGLE_APP_THEME,
+  isNightMode
+});
+
+export const themeSwitchClick = isModeChanged => ({
+  type: THEME_SWITCH_CLICK,
+  isModeChanged
+});
