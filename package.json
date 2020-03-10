@@ -43,7 +43,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "mocha",
-    "deploy:github": "npm run build && node ./scripts/deploy-github"
+    "deploy:github": "npm run build && node ./scripts/deploy-github",
+    "prettier:write" : "prettier --write \"src/**/*.{js,scss}\""
   },
   "repository": {
     "type": "git",
@@ -55,8 +56,10 @@
   "devDependencies": {
     "babel-preset-gatsby": "^0.1.8",
     "chai": "*",
+    "eslint-config-prettier": "^6.10.0",
     "gatsby-plugin-root-import": "^2.0.5",
     "gh-pages": "^2.0.1",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "prettier": "1.19.1"
   }
 }
