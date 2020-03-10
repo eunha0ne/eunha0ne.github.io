@@ -1,29 +1,37 @@
 // @import '/common/Utils';
-@import "src/style/ThemeColors.scss";
+@import 'src/style/ThemeColors.scss';
 
 body {
   background: var(--bg-main);
   transition: background-color 1s ease;
 }
 
-div[role="group"] {
+div[role='group'] {
   background: var(--bg-main);
   transition: background-color 1s ease, border 1s ease;
   overflow-x: hidden;
 
-  .main-header { z-index: 200; }
+  .main-header {
+    z-index: 200;
+  }
 
   .post {
-    position: relative; z-index: 100; max-width: 740px;
-    margin: 0 auto; padding: 1.3rem;
+    position: relative;
+    z-index: 100;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 1.3rem;
   }
 
   > footer {
     padding-bottom: 3rem;
-    text-align: center; font-size: 1.3em; color: var(--font-sub);
+    text-align: center;
+    font-size: 1.3em;
+    color: var(--font-sub);
 
     p {
-      margin: 0; padidng: 0;
+      margin: 0;
+      padidng: 0;
       line-height: 1.4;
       span {
         color: var(--font-hl);
@@ -33,12 +41,11 @@ div[role="group"] {
 }
 
 @media only screen and (max-width: 640px) {
-  div[role="group"] {
-
+  div[role='group'] {
     main {
       position: relative;
-      width: 100%; padding: 1rem;
-
+      width: 100%;
+      padding: 1rem;
 
       .post__contents {
         padding: 3rem;
@@ -53,7 +60,13 @@ div[role="group"] {
 }
 
 .maintenance {
-  position: relative; z-index: 100; max-width: 740px; height: calc(100vh - 10rem);
-  margin: 0 auto; padding-top: 15rem;
-  font-size: 1.6rem; text-align: center; color: var(--font-main);
+  position: relative;
+  z-index: 100;
+  max-width: 740px;
+  height: calc(100vh - 10rem);
+  margin: 0 auto;
+  padding-top: 15rem;
+  font-size: 1.6rem;
+  text-align: center;
+  color: var(--font-main);
 }

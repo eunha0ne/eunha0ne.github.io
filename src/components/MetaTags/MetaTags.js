@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet'
+import Helmet from 'react-helmet';
 
 function MetaTags(props) {
   return (
@@ -10,19 +10,19 @@ function MetaTags(props) {
         { name: 'description', content: '은하의 개발 블로그입니다.' }, //props.description },
         {
           property: 'og:title',
-          content: props.title,
+          content: props.title
         },
         {
           property: 'og:url',
-          content: props.pathname ? props.url + props.pathname : props.url,
+          content: props.pathname ? props.url + props.pathname : props.url
         },
         {
           property: 'og:image',
-          content: props.thumbnail && props.thumbnail,
+          content: props.thumbnail && props.thumbnail
         },
         {
           property: 'og:image:secure_url',
-          content: props.thumbnail && props.thumbnail,
+          content: props.thumbnail && props.thumbnail
         },
         {
           property: 'og:description',
@@ -30,15 +30,15 @@ function MetaTags(props) {
         },
         {
           property: 'og:image:width',
-          content: '1200',
+          content: '1200'
         },
         {
           property: 'og:image:height',
-          content: '630',
+          content: '630'
         },
         {
           property: 'og:locale',
-          content: 'en',
+          content: 'en'
         },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: props.title },
@@ -48,7 +48,7 @@ function MetaTags(props) {
         },
         {
           name: 'twitter:image',
-          content: props.thumbnail && props.thumbnail,
+          content: props.thumbnail && props.thumbnail
         },
         { property: 'og:type', content: 'website' },
         { name: 'robots', content: 'index, follow' },
