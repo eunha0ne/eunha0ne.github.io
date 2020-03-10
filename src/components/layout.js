@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql, useStaticQuery } from "gatsby";
-import PageHeader from "src/components/header/PageHeader";
-import "./layout.css";
-import "./layout.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
+import PageHeader from 'src/components/header/PageHeader';
+import './layout.css';
+import './layout.scss';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,17 +20,18 @@ const Layout = ({ children }) => {
 
   return (
     <React.Fragment>
-      <PageHeader siteTitle={data.site.siteMetadata.title}/>
+      <PageHeader siteTitle={data.site.siteMetadata.title} />
       {children}
       <footer>
-        <p>© {new Date().getFullYear()} <span>eunha0ne</span> All rights reserved.</p>
+        <p>
+          © {new Date().getFullYear()} <span>eunha0ne</span> All rights
+          reserved.
+        </p>
         <p>Built with {`Gatsby, React, GraphQL`} </p>
-
       </footer>
     </React.Fragment>
   );
-
-}
+};
 
 /*
 return (
@@ -67,7 +68,7 @@ return (
 */
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 /*
 StaticQuery.propTypes = {

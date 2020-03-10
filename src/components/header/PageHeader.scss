@@ -14,10 +14,10 @@
   background-color: var(--bg-header);
   transition: background-color 1s ease, transform 0.6s ease,
     border-bottom 0.6s ease;
-    
-  @supports (backdrop-filter: blur(3px)) { 
-    backdrop-filter: blur(3px) 
-  };
+
+  @supports (backdrop-filter: blur(3px)) {
+    backdrop-filter: blur(3px);
+  }
 
   &--fade-in {
     transform: translateY(0rem);

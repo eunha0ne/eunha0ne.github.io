@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import throttle from "../common/throttle.js"
-import "./TopButton.scss";
+import React, { Component } from 'react';
+import throttle from '../common/throttle.js';
+import './TopButton.scss';
 
 class TopButton extends Component {
   constructor(props) {
@@ -14,19 +14,19 @@ class TopButton extends Component {
 
   toggleClass(event) {
     const topButton = this.topButton.current;
-    const scrollTopValue
-      = document.documentElement.scrollTop || document.scrollingElement.scrollTop;
+    const scrollTopValue =
+      document.documentElement.scrollTop || document.scrollingElement.scrollTop;
 
     if (topButton.classList.contains('clicked')) {
       event.preventDefault();
     }
 
-    if (scrollTopValue < 1000
-      && topButton.classList.contains('fade-in')) {
+    if (scrollTopValue < 1000 && topButton.classList.contains('fade-in')) {
       topButton.classList.remove('fade-in');
-
-    } else if (1000 < scrollTopValue
-      && !topButton.classList.contains('fade-in')) {
+    } else if (
+      1000 < scrollTopValue &&
+      !topButton.classList.contains('fade-in')
+    ) {
       topButton.classList.add('fade-in');
     }
   }
@@ -50,15 +50,17 @@ class TopButton extends Component {
       currentPhase += Math.PI / (duration / tsDiff);
       if (currentPhase >= Math.PI) {
         clearTimeout(this.timeoutEvent);
-        this.timeoutEvent = function () {
+        this.timeoutEvent = function() {
           topButton.classList.remove('clicked');
-        }
+        };
 
         setTimeout(this.timeoutEvent, 300);
         return;
       }
 
-      const pos = Math.round(cosParameter * Math.cos(currentPhase) + cosParameter);
+      const pos = Math.round(
+        cosParameter * Math.cos(currentPhase) + cosParameter
+      );
       window.scrollTo(0, pos);
       window.requestAnimationFrame(animateScroll.bind(this));
     }
@@ -68,7 +70,9 @@ class TopButton extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.toggleClassThrottle, { passive: true });
+    window.addEventListener('scroll', this.toggleClassThrottle, {
+      passive: true
+    });
     this.topButton.current.addEventListener('click', this.scrollUp);
   }
 
@@ -79,10 +83,7 @@ class TopButton extends Component {
 
   render() {
     return (
-      <div
-        ref={this.topButton}
-        className="top-button"
-      >
+      <div ref={this.topButton} className="top-button">
         <span>↑</span>
       </div>
     );
