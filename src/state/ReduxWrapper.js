@@ -1,10 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore as reduxCreateStore } from 'redux';
-import rootReducer from '../reducers';
+import { createStore } from 'redux';
+import rootReducer from 'src/store/modules';
 
-const createStore = () => reduxCreateStore(rootReducer);
+const store = createStore(rootReducer);
 
 export default ({ element }) => {
-  return <Provider store={createStore()}>{element}</Provider>;
+  return (
+    <Provider store={store}>
+      {element}
+    </Provider>
+  );
 };

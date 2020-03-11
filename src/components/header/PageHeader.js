@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { themeSwitchClick } from 'src/actions';
+import { themeSwitchClick } from 'src/store/modules/theme';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import throttle from '../common/throttle.js';
@@ -131,7 +131,7 @@ PageHeader.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isThemeSwitchClick: state.appTheme.isThemeSwitchClick
+  isThemeSwitchClick: state.theme.isThemeSwitchClick
 });
 
 const mapDispatchToProps = dispatch => ({
