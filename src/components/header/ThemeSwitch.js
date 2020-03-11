@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleAppTheme, themeSwitchClick } from 'src/actions';
+import { toggleTheme, themeSwitchClick } from 'src/store/modules/theme';
 
 import './ThemeSwtich.scss';
 
@@ -29,10 +29,10 @@ class ThemeSwitch extends React.Component {
   }
 
   handleClick() {
-    const { isNightMode, toggleAppTheme, themeSwitchClick } = this.props;
+    const { isNightMode, toggleTheme, themeSwitchClick } = this.props;
     const reverseMode = !isNightMode;
 
-    toggleAppTheme(reverseMode);
+    toggleTheme(reverseMode);
     themeSwitchClick(true);
     this.setThemeClass(this.getThemeName(reverseMode));
   }
@@ -72,12 +72,12 @@ class ThemeSwitch extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isNightMode: state.appTheme.isNightMode,
-  isModeChanged: state.appTheme.isModeChanged
+  isNightMode: state.theme.isNightMode,
+  isModeChanged: state.theme.isModeChanged
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleAppTheme: bool => dispatch(toggleAppTheme(bool)),
+  toggleTheme: bool => dispatch(toggleTheme(bool)),
   themeSwitchClick: bool => dispatch(themeSwitchClick(bool))
 });
 

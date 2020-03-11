@@ -120,6 +120,6 @@ HeaderBack.propTypes = {
 
 export default connect(state => {
   return {
-    isNightMode: state.appTheme.isNightMode
+    isNightMode: state.theme.isNightMode
   };
 }, null)(HeaderBack);
