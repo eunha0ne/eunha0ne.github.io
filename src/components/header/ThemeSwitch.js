@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleTheme, themeSwitchClick } from 'src/store/modules/theme';
+import * as cx from 'classNames'
 
 import './ThemeSwtich.scss';
 
@@ -31,7 +32,7 @@ class ThemeSwitch extends React.Component {
   handleClick() {
     const { isNightMode, toggleTheme, themeSwitchClick } = this.props;
     const reverseMode = !isNightMode;
-
+    
     toggleTheme(reverseMode);
     themeSwitchClick(true);
     this.setThemeClass(this.getThemeName(reverseMode));
@@ -42,16 +43,12 @@ class ThemeSwitch extends React.Component {
   }
 
   render() {
-    const { isNightMode, isModeChanged } = this.props;
+    const { isNightMode, isModeChange } = this.props;
 
     return (
       <div className="theme-switch">
         <button className="theme-switch__btn" onClick={this.handleClick}>
-          <div
-            className={`theme-switch__displayer ${
-              isNightMode ? 'is-night' : 'is-day'
-            }`}
-          >
+          <div className={cx(['theme-switch__displayer', isNightMode ? 'is-night' : 'is-day'])}>
             <div className="theme-switch__item theme-switch__item--night">
               <span>night</span>
             </div>
@@ -61,7 +58,7 @@ class ThemeSwitch extends React.Component {
           </div>
         </button>
 
-        {!isModeChanged && (
+        {!isModeChange && (
           <div className="theme-switch__guider">
             <span>Change your mood!</span>
           </div>
@@ -73,7 +70,7 @@ class ThemeSwitch extends React.Component {
 
 const mapStateToProps = state => ({
   isNightMode: state.theme.isNightMode,
-  isModeChanged: state.theme.isModeChanged
+  isModeChange: state.theme.isModeChange
 });
 
 const mapDispatchToProps = dispatch => ({

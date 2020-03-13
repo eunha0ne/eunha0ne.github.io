@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from 'src/components/layout';
-import IndexContents from 'src/components/IndexContents';
+import { Layout } from 'src/components/layout';
+import { IndexContents } from '~/components/IndexContents';
 import AllTags from 'src/components/AllTags';
 import './tag.scss';
 
@@ -18,9 +18,6 @@ const Tags = props => {
   );
 };
 
-// export default connect(state => {
-//   return ({ isNightMode: state.app.isNightMode });
-// }, null)(Tags);
 export default Tags;
 
 export const query = graphql`

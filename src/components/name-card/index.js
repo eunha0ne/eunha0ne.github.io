@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './NameCard.scss';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-const NameCard = props => {
+import './NameCard.scss';
+
+export const NameCard = props => {
   const { name, about, interest } = props;
   const data = useStaticQuery(graphql`
     query {
@@ -48,5 +49,3 @@ NameCard.propTypes = {
   about: PropTypes.string.isRequired,
   interest: PropTypes.array.isRequired
 };
-
-export default NameCard;
