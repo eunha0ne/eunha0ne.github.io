@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kim Gyu-sik <eunha0ne@gmail.com>",
   "dependencies": {
+    "classnames": "^2.2.6",
     "gatsby": "^2.18.17",
     "gatsby-image": "^2.0.34",
     "gatsby-plugin-google-analytics": "^2.1.7",
@@ -44,7 +45,7 @@
     "serve": "gatsby serve",
     "test": "mocha",
     "deploy:github": "npm run build && node ./scripts/deploy-github",
-    "prettier:write" : "prettier --write \"src/**/*.{js,scss}\""
+    "prettier:write": "prettier --write \"src/**/*.{js,scss}\""
   },
   "repository": {
     "type": "git",
