@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleTheme, themeSwitchClick } from 'src/store/modules/theme';
-import * as cx from 'classNames'
+import * as cx from 'classNames';
 
 import './ThemeSwtich.scss';
 
@@ -32,7 +32,7 @@ class ThemeSwitch extends React.Component {
   handleClick() {
     const { isNightMode, toggleTheme, themeSwitchClick } = this.props;
     const reverseMode = !isNightMode;
-    
+
     toggleTheme(reverseMode);
     themeSwitchClick(true);
     this.setThemeClass(this.getThemeName(reverseMode));
@@ -48,7 +48,12 @@ class ThemeSwitch extends React.Component {
     return (
       <div className="theme-switch">
         <button className="theme-switch__btn" onClick={this.handleClick}>
-          <div className={cx(['theme-switch__displayer', isNightMode ? 'is-night' : 'is-day'])}>
+          <div
+            className={cx([
+              'theme-switch__displayer',
+              isNightMode ? 'is-night' : 'is-day'
+            ])}
+          >
             <div className="theme-switch__item theme-switch__item--night">
               <span>night</span>
             </div>

@@ -6,9 +6,5 @@ import rootReducer from '~/store/modules';
 const store = createStore(rootReducer);
 
 export default ({ element }) => {
-  return (
-    <Provider store={store}>
-      {element}
-    </Provider>
-  );
+  return <Provider store={store}>{element}</Provider>;
 };
