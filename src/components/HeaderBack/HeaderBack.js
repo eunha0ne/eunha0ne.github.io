@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import throttle from 'src/components/common/throttle.js';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import throttle from '~/utils/throttle';
 
 import './HeaderBack.scss';
 

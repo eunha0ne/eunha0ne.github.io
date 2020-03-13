@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import throttle from '../common/throttle';
+import throttle from '~/utils/throttle';
+
 import './TableContents.scss';
 
 class TableContents extends Component {

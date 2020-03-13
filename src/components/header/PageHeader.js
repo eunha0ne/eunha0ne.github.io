@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { themeSwitchClick } from 'src/store/modules/theme';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import throttle from '../common/throttle.js';
+import throttle from '~/utils/throttle';
 
 import ReaderBoard from './ReaderBoard';
 import ThemeSwitch from './ThemeSwitch';
