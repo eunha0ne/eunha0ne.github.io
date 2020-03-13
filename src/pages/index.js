@@ -1,14 +1,36 @@
 import React from 'react';
-import '~/utils/performance'
-
+import { useStaticQuery, graphql } from 'gatsby';
 import { Layout } from '~/components/layout/';
 import { SEO } from '~/components/seo';
-import { NameCard } from '~/components/name-card';
+import { NameCard } from '~/components/NameCard';
 import { IndexContents } from '~/components/IndexContents';
 
+import '~/utils/performance';
 import './index.scss';
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        totalCount
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              tags
+              date(formatString: "YYYY년 MM월 DD일")
+            }
+            fields {
+              slug
+            }
+            excerpt(pruneLength: 90, truncate: true)
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
       {<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />}
@@ -23,24 +45,24 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
-export const query = graphql`
-  {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            tags
-            date(formatString: "YYYY년 MM월 DD일")
-          }
-          fields {
-            slug
-          }
-          excerpt(pruneLength: 90, truncate: true)
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   {
+//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+//       totalCount
+//       edges {
+//         node {
+//           id
+//           frontmatter {
+//             title
+//             tags
+//             date(formatString: "YYYY년 MM월 DD일")
+//           }
+//           fields {
+//             slug
+//           }
+//           excerpt(pruneLength: 90, truncate: true)
+//         }
+//       }
+//     }
+//   }
+// `;
