@@ -1,4 +1,3 @@
-
 const TOGGLE_THEME = 'theme/TOGGLE_THEME';
 const THEME_SWITCH_CLICK = 'theme/THEME_SWITCH_CLICK';
 

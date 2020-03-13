@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { Layout } from '~/components/layout';
-import { NameCard } from '~/components/name-card';
+import { NameCard } from '~/components/NameCard';
 import TopButton from '../components/main/TopButton';
 import TableContents from '../components/main/TableContents';
 import MetaTags from 'src/components/MetaTags';

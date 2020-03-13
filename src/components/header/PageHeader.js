@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { themeSwitchClick } from 'src/store/modules/theme';
 import { Link } from 'gatsby';
+import { connect } from 'react-redux';
+import { themeSwitchClick } from '~/store/modules/theme';
+
 import ReaderBoard from './ReaderBoard';
 import ThemeSwitch from './ThemeSwitch';
+
 import throttle from '~/utils/throttle';
+import * as cx from 'classNames';
 
 import './PageHeader.scss';
 
@@ -92,14 +95,17 @@ class PageHeader extends React.Component {
 
 const Header = props => {
   const { hasReader, isRolldown, isDocking } = props;
-  const classState = isDocking
-    ? 'main-header--docked'
-    : isRolldown
-    ? 'main-header--fade-in'
-    : 'main-header--fade-out';
 
   return (
-    <header className={`main-header ${classState}`}>
+    <header
+      className={cx([
+        'main-header',
+        { 'main-header--docked': isDocking },
+        !isDocking && isRolldown
+          ? 'main-header--fade-in'
+          : 'main-header--fade-out'
+      ])}
+    >
       <div className="main-header__container">
         <nav className="menu">
           <Link className="menu__link" to="/">
@@ -130,7 +136,7 @@ PageHeader.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  isThemeSwitchClick: state.theme.isThemeSwitchClick
+  isModeChange: state.theme.isModeChange
 });
 
 const mapDispatchToProps = dispatch => ({
