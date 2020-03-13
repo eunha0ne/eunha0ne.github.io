@@ -1,9 +1,11 @@
 import React from 'react';
-// import { Link } from "gatsby"
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import NameCard from 'src/components/NameCard';
-import IndexContents from 'src/components/IndexContents';
+import '~/utils/performance'
+
+import { Layout } from '~/components/layout/';
+import { SEO } from '~/components/seo';
+import { NameCard } from '~/components/name-card';
+import { IndexContents } from '~/components/IndexContents';
+
 import './index.scss';
 
 const IndexPage = ({ data }) => {

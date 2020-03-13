@@ -6,7 +6,6 @@
   Date.now =
     Date.now ||
     function() {
-      // thanks IE8
       return new Date().getTime();
     };
 

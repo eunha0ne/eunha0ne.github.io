@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import throttle from '../common/throttle.js';
 
 import './ReaderBoard.scss';
 

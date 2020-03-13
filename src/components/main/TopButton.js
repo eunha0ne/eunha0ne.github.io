@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import throttle from '../common/throttle.js';
+import throttle from '~/utils/throttle';
+
 import './TopButton.scss';
 
 class TopButton extends Component {
