@@ -22,20 +22,20 @@ div[role='group'] {
     margin: 0 auto;
     padding: 1.3rem;
   }
+}
 
-  > footer {
-    padding-bottom: 3rem;
-    text-align: center;
-    font-size: 1.3em;
-    color: var(--font-sub);
+.site-footer {
+  padding-bottom: 3rem;
+  text-align: center;
+  font-size: 1.3em;
+  color: var(--font-sub);
 
-    p {
-      margin: 0;
-      padidng: 0;
-      line-height: 1.4;
-      span {
-        color: var(--font-hl);
-      }
+  p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    span {
+      color: var(--font-hl);
     }
   }
 }

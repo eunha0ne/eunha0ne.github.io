@@ -23,7 +23,7 @@ export const Layout = ({ children }) => {
     <React.Fragment>
       <PageHeader siteTitle={data.site.siteMetadata.title} />
       {children}
-      <footer>
+      <footer className="site-footer">
         <p>
           © {new Date().getFullYear()} <span>eunha0ne</span> All rights
           reserved.

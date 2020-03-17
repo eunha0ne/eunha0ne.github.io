@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 import './NameCard.scss';
 
-const Wrapper = styled.namecard`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -24,7 +24,7 @@ const Wrapper = styled.namecard`
   }
 `;
 
-export const NameCard = props => {
+const NameCard = props => {
   const { name, about, interest } = props;
   const data = useStaticQuery(graphql`
     query {
@@ -39,7 +39,7 @@ export const NameCard = props => {
   `);
 
   return (
-    <Wrapper className="namecard">
+    <Wrapper>
       <div className="namecard__left">
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </div>
@@ -68,3 +68,5 @@ NameCard.propTypes = {
   about: PropTypes.string.isRequired,
   interest: PropTypes.array.isRequired
 };
+
+export { NameCard };
