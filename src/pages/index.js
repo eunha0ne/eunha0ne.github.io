@@ -23,7 +23,7 @@ const main = css`
   }
 `;
 
-const headline = css`
+const main__head = css`
   font-size: 0;
   visibility: hidden;
 `;
@@ -55,7 +55,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <main css={main}>
-        <h1 css={headline}>은하의 개발 블로그입니다.</h1>
+        <h1 css={main__head}>은하의 개발 블로그입니다.</h1>
         <NameCard />
         <IndexContents data={data} />
       </main>
