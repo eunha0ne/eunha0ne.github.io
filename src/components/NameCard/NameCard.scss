@@ -1,22 +1,22 @@
-.namecard {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  height: auto;
-  font-size: 0;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-sizing: border-box;
-  border: 1px solid var(--border-main);
-  background-color: var(--bg-none);
+// .namecard {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   width: 100%;
+//   height: auto;
+//   font-size: 0;
+//   border-radius: 0.5rem;
+//   overflow: hidden;
+//   box-sizing: border-box;
+//   border: 1px solid var(--border-main);
+//   background-color: var(--bg-none);
 
-  > * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 1rem;
-  }
-}
+//   > * {
+//     box-sizing: border-box;
+//     margin: 0;
+//     padding: 1rem;
+//   }
+// }
 
 .namecard__left {
   width: 30%;

@@ -3,7 +3,26 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
+import styled from '@emotion/styled';
 import './NameCard.scss';
+
+const Wrapper = styled.namecard`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  font-size: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid var(--border-main);
+  background-color: var(--bg-none);
+
+  > * {
+    box-sizing: border-box;
+  }
+`;
 
 export const NameCard = props => {
   const { name, about, interest } = props;
@@ -20,7 +39,7 @@ export const NameCard = props => {
   `);
 
   return (
-    <div className="namecard">
+    <Wrapper className="namecard">
       <div className="namecard__left">
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </div>
@@ -33,7 +52,7 @@ export const NameCard = props => {
           ))}
         </ul>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
