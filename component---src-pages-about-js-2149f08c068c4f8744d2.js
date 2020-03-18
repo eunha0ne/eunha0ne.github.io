@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{"3XHS":function(n,t,a){"use strict";a.r(t);a("q1tI");var e=a("I/Ru"),c=a("qKvR");t.default=function(n){n.data;return Object(c.b)(e.a,null,Object(c.b)("div",{className:"maintenance"},Object(c.b)("p",null,"페이지 준비 중입니다.")))}}}]);
+//# sourceMappingURL=component---src-pages-about-js-2149f08c068c4f8744d2.js.map
