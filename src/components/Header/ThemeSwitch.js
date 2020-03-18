@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleTheme, themeSwitchClick } from 'src/store/modules/theme';
+import { toggleTheme, themeSwitchClick } from '~/store/modules/theme';
 import * as cx from 'classNames';
 
 import './ThemeSwtich.scss';

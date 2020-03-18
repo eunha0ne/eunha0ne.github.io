@@ -2,11 +2,11 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { Layout } from '~/components/Layout';
 import { NameCard } from '~/components/NameCard';
-import TopButton from '../components/Main/TopButton';
-import TableContents from '../components/Main/TableContents';
-import MetaTags from 'src/components/MetaTags';
-import HeaderBack from 'src/components/HeaderBack';
-import Comments from 'src/components/Comments';
+import TopButton from '~/components/Main/TopButton';
+import TableContents from '~/components/Main/TableContents';
+import MetaTags from '~/components/MetaTags';
+import HeaderBack from '~/components/HeaderBack';
+import Comments from '~/components/Comments';
 
 import * as S from '~/ui/main';
 import './post.scss';
