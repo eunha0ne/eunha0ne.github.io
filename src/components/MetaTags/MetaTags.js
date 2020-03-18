@@ -53,7 +53,7 @@ function MetaTags(props) {
         { property: 'og:type', content: 'website' },
         { name: 'robots', content: 'index, follow' },
 
-        { name: 'twitter:creator', content: '@eunha0ne' },
+        { name: 'twitter:creator', content: '~/eunha0ne' },
         { property: 'og:site_name', content: `eunha's dev` }
       ]}
     >

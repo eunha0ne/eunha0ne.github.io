@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout } from 'src/components/Layout';
+import { Layout } from '~/components/Layout';
 import { IndexContents } from '~/components/IndexContents';
-import AllTags from 'src/components/AllTags';
+import AllTags from '~/components/AllTags';
 import './tag.scss';
 
 const Tags = props => {

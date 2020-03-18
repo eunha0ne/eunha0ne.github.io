@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Tags from 'src/components/Tags';
+import Tags from '~/components/Tags';
 
 import './IndexContents.scss';
 
