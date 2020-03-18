@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { Layout } from '~/components/layout';
+import { Layout } from '~/components/Layout';
 import { NameCard } from '~/components/NameCard';
-import TopButton from '../components/main/TopButton';
-import TableContents from '../components/main/TableContents';
+import TopButton from '../components/Main/TopButton';
+import TableContents from '../components/Main/TableContents';
 import MetaTags from 'src/components/MetaTags';
 import HeaderBack from 'src/components/HeaderBack';
-import Comments from 'src/components/comments';
+import Comments from 'src/components/Comments';
 
 import * as S from '~/ui/main';
 import './post.scss';
