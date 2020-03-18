@@ -1,0 +1,108 @@
+// 메인 헤더
+.main-header {
+  position: fixed;
+  left: 0;
+  top: 0px;
+  z-index: 1;
+  display: inline-block;
+  width: 100%;
+  height: 4.24rem;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+  transform: translateY(-4.25rem);
+  color: var(--font-main);
+  background-color: var(--bg-header);
+  transition: background-color 1s ease, transform 0.6s ease,
+    border-bottom 0.6s ease;
+
+  @supports (backdrop-filter: blur(3px)) {
+    backdrop-filter: blur(3px);
+  }
+
+  &--fade-in {
+    transform: translateY(0rem);
+  }
+  &--fade-out {
+    transform: translateY(-4.25rem);
+  }
+
+  .progress-bar {
+    will-change: opacity;
+  }
+}
+
+.main-header__container {
+  position: relative;
+  display: inline-block;
+  max-width: 74rem;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  vertical-align: top;
+  text-align: left;
+  font-size: 0;
+  box-sizing: border-box;
+}
+
+.main-header__title {
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  vertical-align: middle;
+  margin: 0;
+  text-align: left;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+
+// 메인 헤더: 도킹 상태에 따른 하위 엘리먼트 <스타일 재정의>
+.main-header--docked {
+  transform: translateY(0rem);
+  background: none;
+
+  .menu {
+    &__link {
+      color: var(--font-main);
+      &:hover {
+        color: var(--font-hl);
+      }
+    }
+  }
+
+  .progress-bar {
+    opacity: 0;
+  }
+}
+
+// (링크)메뉴
+.menu {
+  width: 100%;
+  height: 100%;
+}
+
+.menu__link {
+  display: inline-block;
+  height: 100%;
+  margin-left: 1.75rem;
+  padding: 0 0.4rem;
+  padding-top: 0.25rem;
+  color: var(--font-main);
+  font-size: 1.6rem;
+  transition: color 0.1s ease;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+  &:link {
+    color: var(--font-main);
+  }
+  &:hover {
+    color: var(--font-hl);
+  }
+}
