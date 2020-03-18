@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-// import Layout from 'src/components/layout';
 import './AllTags.scss';
 
 const AllTags = () => {

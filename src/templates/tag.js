@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Layout } from 'src/components/layout';
+import { Layout } from 'src/components/Layout';
 import { IndexContents } from '~/components/IndexContents';
 import AllTags from 'src/components/AllTags';
 import './tag.scss';
