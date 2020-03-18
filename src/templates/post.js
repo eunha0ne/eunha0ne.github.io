@@ -7,6 +7,8 @@ import TableContents from '../components/main/TableContents';
 import MetaTags from 'src/components/MetaTags';
 import HeaderBack from 'src/components/HeaderBack';
 import Comments from 'src/components/comments';
+
+import * as S from '~/ui/main';
 import './post.scss';
 import 'prismjs/themes/prism-tomorrow.css';
 
@@ -27,7 +29,7 @@ export const query = graphql`
   }
 `;
 
-export default ({ data, pageContext }) => {
+export default function Post({ data, pageContext }) {
   const { next, prev } = pageContext;
   const post = data.markdownRemark;
 
@@ -37,10 +39,10 @@ export default ({ data, pageContext }) => {
         title={post.frontmatter.title}
         description={data.markdownRemark.excerpt}
       />
-      <main>
+      <main css={S.main}>
         <article className="post">
           <header className="post__header">
-            <h1>{post.frontmatter.title}</h1>
+            <h1 css={S.main__head}>{post.frontmatter.title}</h1>
             <span>{post.frontmatter.date}</span>
             <HeaderBack />
           </header>
@@ -64,14 +66,15 @@ export default ({ data, pageContext }) => {
       </main>
     </Layout>
   );
-};
+}
 
 const PostTags = props => {
   const { tags } = props;
+
   return (
     <div className="inner-tags">
       {tags.map((tag, i) => (
-        <a href={`/${tag}`} key={i}>
+        <a href={`/${tag}`} key={`post-tags-${i}`}>
           {tag}
         </a>
       ))}
@@ -81,6 +84,7 @@ const PostTags = props => {
 
 const PostNavi = props => {
   const { prev, next } = props;
+
   return (
     <div className="navi">
       {prev && (
