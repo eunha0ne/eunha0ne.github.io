@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    amd: true,
+    node: true
   },
   extends: [
     'plugin:prettier/recommended',
@@ -15,5 +16,8 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['react']
+  plugins: ['react'],
+  rules: {
+    'no-undef': ['error', { typeof: true }]
+  }
 };
