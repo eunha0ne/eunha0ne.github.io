@@ -42,7 +42,7 @@ export default function Post({ data, pageContext }) {
       <main css={S.main}>
         <article className="post">
           <header className="post__header">
-            <h1 css={S.main__head}>{post.frontmatter.title}</h1>
+            <h1>{post.frontmatter.title}</h1>
             <span>{post.frontmatter.date}</span>
             <HeaderBack />
           </header>
