@@ -3,10 +3,14 @@ const _ = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const template = {
   post: path.resolve('src/templates/post.js'),
-  tag: path.resolve('src/templates/tag.js'),
+  tag: path.resolve('src/templates/tag.js')
 };
 
-exports.createPages = async ({ actions: { createPage }, graphql }) => {
+exports.createPages = async ({
+  actions: { createPage },
+  graphql,
+  reporter
+}) => {
   const results = await getAllPagesData(graphql);
   if (results.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
@@ -25,8 +29,8 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       context: {
         slug: node.fields.slug,
         prev: index === 0 ? null : allPosts[index - 1],
-        next: index === allPosts.length - 1 ? null : allPosts[index + 1],
-      },
+        next: index === allPosts.length - 1 ? null : allPosts[index + 1]
+      }
     });
   });
 
@@ -36,8 +40,8 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
       path: `/${tag}/`,
       component: template.tag,
       context: {
-        tag,
-      },
+        tag
+      }
     });
   });
 };
@@ -49,7 +53,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: slug
     });
   }
 };
