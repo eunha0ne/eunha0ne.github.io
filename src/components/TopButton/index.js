@@ -1,50 +1,22 @@
-import React, { useState, useEffect, useMemo } from 'react';
-// import useScrollToPos from './useScrllToPos';
+import React, { useState, useEffect } from 'react';
+import scrollToPos from '~/utils/scrollToPos';
 
 import * as S from './index.style';
 
 const TopButton = () => {
-  const [isHideButton, setIsHideButton] = useState(false);
+  const [isHideButton, setIsHideButton] = useState(true);
   const [isClick, setIsClick] = useState(false);
-  const scrollToPos = () => {
-    const duration = 1000;
-    const initPos = window.scrollY / 2;
-    let currPhase = 0;
-    let timeStampOld = performance.now();
-
-    const scrolling = () => {
-      const timeStampNew = performance.now();
-      const timeDiff = Math.round(timeStampNew - timeStampOld);
-
-      currPhase += Math.PI / (duration / timeDiff);
-      if (currPhase >= Math.PI) {
-        console.log('/end');
-        return;
-      }
-
-      const restPos = Math.round(initPos * Math.cos(currPhase) + initPos);
-      timeStampOld = timeStampNew;
-      window.scrollTo(0, restPos);
-      requestAnimationFrame(scrolling);
-    };
-
-    return requestAnimationFrame(scrolling);
-  };
-
-  const handleScroll = () => {
-    if (isClick) {
-      console.log('/');
-      scrollToPos();
-    }
-  };
 
   useEffect(() => {
-    console.log('useEffect', isClick);
-    handleScroll();
-  }, [isClick]);
+    if (isClick) {
+      scrollToPos(() => {
+        setIsClick(false);
+        setIsHideButton(false);
+      });
+    }
+  }, [isHideButton, isClick]);
 
   return (
-    // () => (
     <S.Button
       onClick={() => setIsClick(true)}
       className={isHideButton ? 'is-fade-out' : 'is-fade-in'}
@@ -62,7 +34,6 @@ const TopButton = () => {
         />
       </svg>
     </S.Button>
-    // ),
   );
 };
 

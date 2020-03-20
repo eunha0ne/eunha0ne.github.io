@@ -1,7 +1,4 @@
-import { useEffect } from 'react';
-
-// TODO: 커스텀 훅으로 리팩토링
-const handleScroll = callback => {
+export default function scrollToPos(callback) {
   const duration = 1000;
   const initPos = window.scrollY / 2;
   let currPhase = 0;
@@ -24,16 +21,4 @@ const handleScroll = callback => {
   };
 
   return requestAnimationFrame(scrolling);
-};
-
-export default function useScrollToPos(effect, deps) {
-  const callback = () => {
-    console.log('effect', effect);
-    effect({ isReached: true });
-  };
-
-  useEffect(() => {
-    console.log('deps', deps);
-    handleScroll(callback);
-  }, deps);
 }
