@@ -2,7 +2,7 @@ import { css } from '@emotion/core';
 
 export const main = css`
   margin: 0 auto;
-  padding: 15rem 1rem 0;
+  padding: 15rem 1.25rem 0;
   display: flex;
   flex-direction: column;
   max-width: 740px;
