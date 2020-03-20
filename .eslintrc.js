@@ -2,7 +2,8 @@ module.exports = {
   env: {
     browser: true,
     amd: true,
-    node: true
+    node: true,
+    es6: true
   },
   extends: [
     'plugin:prettier/recommended',
@@ -16,8 +17,10 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks'],
   rules: {
-    'no-undef': ['error', { typeof: true }]
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'no-undef': ['error']
   }
 };
