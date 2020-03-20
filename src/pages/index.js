@@ -6,6 +6,7 @@ import { Layout } from '~/components/Layout';
 import { SEO } from '~/components/SEO';
 import { NameCard } from '~/components/NameCard';
 import { IndexContents } from '~/components/IndexContents';
+import { TopButton } from '~/components/TopButton';
 
 import * as S from '~/ui/main';
 
@@ -40,6 +41,7 @@ export default function Index() {
         <NameCard />
         <IndexContents data={data} />
       </main>
+      <TopButton />
     </Layout>
   );
 }

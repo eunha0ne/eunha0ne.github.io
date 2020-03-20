@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+
 import { Layout } from '~/components/Layout';
 import { NameCard } from '~/components/NameCard';
-import TopButton from '~/components/Main/TopButton';
 import TableContents from '~/components/Main/TableContents';
 import MetaTags from '~/components/MetaTags';
 import HeaderBack from '~/components/HeaderBack';
@@ -60,7 +60,6 @@ export default function Post({ data, pageContext }) {
             <PostNavi prev={prev} next={next} />
             <NameCard />
             <Comments />
-            <TopButton />
           </section>
         </article>
       </main>
