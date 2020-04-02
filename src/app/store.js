@@ -1,10 +1,12 @@
-import React from 'react';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
 import rootReducer from './rootReducer';
 
-const store = createStore(rootReducer);
+const reduxDevtools =
+  typeof window !== 'undefined'
+    ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__()
+    : {};
 
-export default ({ element }) => {
-  return <Provider store={store}>{element}</Provider>;
-};
+const store = createStore(rootReducer, reduxDevtools);
+
+export default store;
