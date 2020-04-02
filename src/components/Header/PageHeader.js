@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { connect } from 'react-redux';
-import { themeSwitchClick } from '~/store/modules/theme';
+import { themeSwitchClick } from '~/modules/theme';
 
 import ReaderBoard from './ReaderBoard';
 import ThemeSwitch from './ThemeSwitch';

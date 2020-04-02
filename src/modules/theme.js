@@ -1,15 +1,26 @@
-const TOGGLE_THEME = 'theme/TOGGLE_THEME';
-const THEME_SWITCH_CLICK = 'theme/THEME_SWITCH_CLICK';
+/**
+ * Actions
+ */
 
-export const toggleTheme = isNightMode => ({
-  type: TOGGLE_THEME,
-  isNightMode
+const TOGGLE_THEME = 'theme/TOGGLE_THEME';
+const IS_SWITCH_CLICK = 'theme/IS_SWITCH_CLICK';
+
+/**
+ * Actions Creators
+ */
+
+export const toggleTheme = () => ({
+  type: TOGGLE_THEME
 });
 
 export const themeSwitchClick = isModeChange => ({
-  type: THEME_SWITCH_CLICK,
+  type: IS_SWITCH_CLICK,
   isModeChange
 });
+
+/**
+ * Reducer
+ */
 
 const initialState = {
   isNightMode: false,
@@ -19,10 +30,11 @@ const initialState = {
 export default function theme(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_THEME: {
-      return { ...state, isNightMode: action.isNightMode };
+      const { isNightMode } = state;
+      return { ...state, isNightMode: !isNightMode };
     }
 
-    case THEME_SWITCH_CLICK: {
+    case IS_SWITCH_CLICK: {
       return { ...state, isModeChange: action.isModeChange };
     }
 

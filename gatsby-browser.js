@@ -4,4 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-export { default as wrapRootElement } from './src/state/ReduxWrapper';
+export { default as wrapRootElement } from './src';

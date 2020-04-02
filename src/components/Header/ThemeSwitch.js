@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleTheme, themeSwitchClick } from '~/store/modules/theme';
+import { toggleTheme, themeSwitchClick } from '~/modules/theme';
 import * as cx from 'classNames';
 
 import './ThemeSwtich.scss';
@@ -79,7 +79,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleTheme: bool => dispatch(toggleTheme(bool)),
+  toggleTheme: () => dispatch(toggleTheme()),
   themeSwitchClick: bool => dispatch(themeSwitchClick(bool))
 });
 

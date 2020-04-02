@@ -36,11 +36,11 @@ export default function Index() {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <main css={S.main}>
+      <S.Main paddingTop={'20rem'}>
         <h1 css={S.main__head}>은하의 개발 블로그입니다.</h1>
         <NameCard />
         <IndexContents data={data} />
-      </main>
+      </S.Main>
       <TopButton />
     </Layout>
   );
