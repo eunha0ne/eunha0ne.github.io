@@ -9,7 +9,7 @@ export const main = css`
   width: 100%;
 
   @media screen and (max-width: 640px) {
-    margin-top: 15rem;
+    /* margin-top: 15rem; */
   }
 `;
 
