@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{nRki:function(n,t,c){"use strict";c.r(t);c("q1tI");var a=c("Zttt"),e=c("qKvR");t.default=function(n){n.data;return Object(e.c)(a.a,null,Object(e.c)("div",{className:"maintenance"},Object(e.c)("p",null,"페이지 준비 중입니다.")))}}}]);
+//# sourceMappingURL=component---src-pages-archive-js-ba2dde9a0dad950b5468.js.map
