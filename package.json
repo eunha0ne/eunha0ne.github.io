@@ -27,7 +27,7 @@
     "js-yaml": "^3.13.1",
     "lodash.clonedeep": "^4.5.0",
     "node-gyp": "^4.0.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "npm": "^6.14.2",
     "postcss-scss": "^2.0.0",
     "prismjs": "^1.16.0",
